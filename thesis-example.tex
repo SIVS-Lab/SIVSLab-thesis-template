@@ -1,0 +1,106 @@
+\documentclass[PhD]{PHlab-thesis}
+
+\addbibresource{thesis-example.bib}
+
+\newcommand*\Department中文{資訊工程學研究所}
+\newcommand*\Department英文{Institute of Computer Science and Information Engineering}
+
+\newcommand*\ThesisTitle中文{視覺化轉錄因子結合位點DNA\退{1}甲基化的新方法：MethylSeqLogo}
+\newcommand*\ThesisTitle英文{MethylSeqLogo: A Novel Method for the Vizualization of DNA Methylation at Transcription Factor Binding Sites}
+\newcommand*\ThesisNote中文{示例:其實徐翡曼是東京大學畢業的博士}% For real thesis omit, or use {初稿} etc.
+\newcommand*\ThesisNote英文{Just an example.  Fei-Man actually graduated from Tokyo Univ.}% For real thesis omit, or use {draft} etc.
+
+\newcommand*\Student中文{徐翡曼}
+\newcommand*\Student英文{Fei-man Hsu}
+
+\newcommand*\Advisor中文{賀保羅}
+\newcommand*\Advisor英文{Paul Horton}
+
+%% 果有共同指導老師可以用:
+%% \newcommand*\CoAdvisorA中文{}
+%% \newcommand*\CoAdvisorA英文{}
+%% \newcommand*\CoAdvisorB中文{}
+%% \newcommand*\CoAdvisorB英文{}
+
+
+\newcommand*\YearMonth英文{July, 2022}
+\newcommand*\YearMonth中文{１１１年７月}
+
+
+\begin{document}
+
+
+\newcommand*\Keywords英文{bioinformatics, genomics, string algorithms}
+\newcommand*\Abstract英文{%
+We introduce MethylSeqLogo, an extension of sequence logos to vizualize DNA methylation.
+}
+
+
+\newcommand*\Keywords中文{生命科學、基因組、字串演算法}
+\newcommand*\Abstract中文{%
+MethylSeqLogo...衍伸sequence logo的視覺化方法改善包括DNA甲基化的資訊。
+}
+
+\newcommand*\Acknowledgements{%
+感謝我...}
+
+
+
+\input{frontmatter}% 封面頁, 口委中英文簽名單, 誌謝, 中英文摘要, 論文目錄, 圖表目錄
+
+
+%────────────────────  List of Symbols  ────────────────────
+\renewcommand\nomgroup[1]{%
+  \item[\bfseries
+  \ifstrequal{#1}{A}{General}{%
+  \ifstrequal{#1}{Z}{Gene/Protein Names}%
+  }]}
+
+\nomenclature[A]{$\lg$}{Logarithm base 2}
+\nomenclature[A]{KL\ Divergence}{Kullback-Liebler Divergence}
+\nomenclature[Z]{Myc}{MYC proto-oncogene}
+\nomenclature[Z]{USF-1}{Upstream stimulatory factor 1}
+
+\printnomenclature[5cm]
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+
+\chapter{Introduction}
+DNA methylation is a major component of the epigenetic state of cells, as as such plays a critial role in the differentiation and maintenance of cell type.  Consequentially, aberrant DNA methylation plays a central role in cancer --- a manifestation of defective regulation of cell behavior.
+
+
+\chapter{Related Works}
+The characteristics of NuMT insertion sites have been analyzed in depth~\cite{TsujiJ_HortonP_NAR2012_Mammalian}.
+Add your related works here.
+
+
+\chapter{Method}
+\section{Proposed Scheme}
+Write a bunch of stuff here.
+
+	
+\chapter{Results}
+Describe your results here.
+
+
+\chapter{Discussion}
+Discussion the significance or your results.
+
+
+\section{Future Work}
+
+
+\chapter{Conclusion}
+Add your conclusions here.
+
+
+\newpage
+\AddToContents{References}
+\printbibliography
+
+
+\end{document}
