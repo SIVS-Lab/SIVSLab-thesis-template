@@ -34,6 +34,7 @@
 \renewbibmacro{in:}{}
 
 
+\RequirePackage{graphicx}
 
 \ifdefined\optWatermark
 \RequirePackage{eso-pic} %provides \AddToShipoutPicture
