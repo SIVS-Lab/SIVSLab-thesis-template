@@ -66,6 +66,6 @@
 \AddToShipoutPicture{%
 \put(0,0){%
 \parbox[b][\paperheight]{\paperwidth}{\vfill\centering%
-\includegraphics[]{header/ncku-watermark-A4.pdf}%
+\includegraphics[]{NCKU-watermark-A4.pdf}%
 \vfill}}}
 \fi
