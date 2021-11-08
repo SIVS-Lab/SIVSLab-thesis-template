@@ -21,7 +21,7 @@ my $dryRunP= shift    if @ARGV and $ARGV[0] eq '-n';
 
 
 for my $filename (@ARGV){
-    $filename=~ /[.]tex$/  or  die  "Expected tex filename but got '$filename'";
+    $filename=~ /[.]tex$/  or  die  "Expected tex filename but got '$filename'\n";
     
     my $filenameStem=  $filename=~ s/[.]tex$//r;
 
