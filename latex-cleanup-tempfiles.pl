@@ -15,7 +15,7 @@ my $usage  =  "Usage: $0 [-n] latex-file...";
 
 die $usage   if  grep {/^-h/} @ARGV;
 
-@ARGV  and  $ARGV[0] eq '-n'  and   my $dryRunP= shift @ARGV;
+my $dryRunP= shift    if @ARGV and $ARGV[0] eq '-n';
 
 @ARGV  or  die $usage;
 
