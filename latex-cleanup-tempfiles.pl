@@ -25,10 +25,12 @@ for my $filename (@ARGV){
     
     my $filenameStem=  $filename=~ s/[.]tex$//r;
 
-    for( qw(aux bbl bcf blg ilg log lof lot nlo nls out run.xml toc xdv) ){
-        if( -e "$filenameStem.$_" ){
-            say  "rm $filenameStem.$_";
-            system  "rm $filenameStem.$_"   unless $dryRunP;
+    for( qw(aux bbl bcf blg ilg log lof lot nav nlo nls out run.xml snm toc xdv) ){
+        my $tempFilename= "$filenameStem.$_";
+        if( -e $tempFilename ){
+            say    "rm $tempFilename";
+            system "rm $tempFilename"   unless $dryRunP;
         }
     }
 }
+
