@@ -79,8 +79,19 @@ Add your related works here.
 
 
 \chapter{Method}
-\section{Notation}
+\section{Mathematical Model}
+\subsection{Notation}
 The notation used in this thesis is summarized in table~\ref{tab:notation}.
+
+\subsection{Likelihood Calculation}
+Our model assumes the data follows a standard normal distribution $𝒩(μ,σ²)$, so the likelihood function is:
+
+\begin{align*}
+ℒ  \;=&\;\;  \frac{1}{σ\sqrt{2π}}\, \exp\Big( \frac{-(x-μ)²}{2σ²}\Big)\\[.5ex]% .5ex adds extra vertical height
+     ∝&\;\;  σ⁻¹\, \exp\big( -½\,z²)  \hspace{1cm} \text{where~~} z ≝ \frac{x-μ}{σ}
+\end{align*}
+
+
 
 \begin{table}
 \begin{tabularx}{0.9\linewidth}{lX}

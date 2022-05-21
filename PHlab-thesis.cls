@@ -9,6 +9,7 @@
 \RequirePackage{array}
 
 \RequirePackage{amsmath}
+\RequirePackage{unicode-math}
 
 \RequirePackage{booktabs}%  For \{top|mid|bottom}rule
 \RequirePackage{tabularx}%  Sometimes more convenient than \tabular or \tabular*
