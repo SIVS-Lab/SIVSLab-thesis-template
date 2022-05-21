@@ -8,6 +8,11 @@
 
 \RequirePackage{array}
 
+\RequirePackage{amsmath}
+
+\RequirePackage{booktabs}%  For \{top|mid|bottom}rule
+\RequirePackage{tabularx}%  Sometimes more convenient than \tabular or \tabular*
+
 \RequirePackage{geometry}
 \RequirePackage{type1cm}
 \geometry{verbose,a4paper,tmargin=2.3cm,bmargin=3cm,lmargin=2.5cm,rmargin=3cm}
