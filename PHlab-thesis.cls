@@ -12,6 +12,7 @@
 \RequirePackage{unicode-math}
 
 \RequirePackage{booktabs}%  For \{top|mid|bottom}rule
+\RequirePackage{fancyhdr}
 \RequirePackage{tabularx}%  Sometimes more convenient than \tabular or \tabular*
 
 \RequirePackage{geometry}
