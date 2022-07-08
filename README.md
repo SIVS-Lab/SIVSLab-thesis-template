@@ -72,12 +72,14 @@ should be enough to update.
 ## Latex Formatting Files (users should not need to edit)
     PHlab-thesis.cls  class file.
     fonts-config.sty  configures fonts.
-    frontmatter.tex   abstract, committee signature page, table of contents, nomenclature
+    frontmatter.tex   abstract, committee signature page, table of contents, nomenclature.
 
 ## Convenience Scripts
     compile-thesis-from-scratch.pl   Full compile from scratch.
     latex-cleanup-tempfiles.pl       Delete latex temp files.
 
+## LaTex Tips
+    PH-latex-tips.tex  A few tips on writing in LaTeX.
 
 # Note on version control
 Please do not place thesis.pdf or temporarily files like thesis.aux in git!
