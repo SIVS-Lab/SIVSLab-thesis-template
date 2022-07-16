@@ -36,12 +36,10 @@ Select desired options by uncommenting lines in compile-opts.tex
 
 ## Edit Documents
 Edit thesis.tex as desired to change content.  
-In particular:  
-edit `\addbibresource{thesis-example.bib}` to point to your bib file.  
-edit `\documentclass[PhD]{PHlab-thesis}` --> `\documentclass{PHlab-thesis}`  
-unless you are a PhD student.
-edit `\documentclass{PHlab-thesis}` --> `\documentclass[BibLaTeXsortingNone]{PHlab-thesis}`  
-If you do not want cited references to be sorted by author name.
+In particular change:
+`\addbibresource{thesis-example.bib}` to point to your bib file.  
+`\documentclass[PhD]{PHlab-thesis}` --> `\documentclass{PHlab-thesis}` unless you are a PhD student.  
+`\documentclass{PHlab-thesis}` --> `\documentclass[BibLaTeXsortingNone]{PHlab-thesis}` if you do not want cited references to be sorted by author name.  
  
 ## Compile Document
     % perl compile-thesis-from-scratch.pl compile-opts.tex
