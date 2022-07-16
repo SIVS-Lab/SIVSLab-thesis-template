@@ -40,6 +40,8 @@ In particular:
 edit `\addbibresource{thesis-example.bib}` to point to your bib file.  
 edit `\documentclass[PhD]{PHlab-thesis}` --> `\documentclass{PHlab-thesis}`  
 unless you are a PhD student.
+edit `\documentclass{PHlab-thesis}` --> `\documentclass[BibLaTeXsortingNone]{PHlab-thesis}`  
+If you do not want cited references to be sorted by author name.
  
 ## Compile Document
     % perl compile-thesis-from-scratch.pl compile-opts.tex
