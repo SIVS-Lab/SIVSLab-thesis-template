@@ -28,14 +28,23 @@
 \makenomenclature
 
 
+
+\DeclareOption{PhD}{\newcommand*\PhD{}}
+
+\newcommand*\BibLaTeXSortingSpec{nty}
+\DeclareOption{BibLaTeXsortingNone}{\renewcommand\BibLaTeXSortingSpec{none}}
+
+\DeclareOption*{\ClassError{Phlab-thesis class passed unknown option: '\@ptionlist{\@currname.\@currext}'}{Nothing more to say.}}
+\ProcessOptions\relax
+
 %──────────  configure biblatex & hyperref  ──────────
 \ifdefined\optHyperlinks
 \RequirePackage[hyperfootnotes=false]{hyperref}
 \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
-\RequirePackage[hyperref=true]{biblatex}
+\RequirePackage[sorting=\BibLaTeXSortingSpec]{biblatex}
 \else
 \RequirePackage[draft,hyperfootnotes=false]{hyperref}
-\RequirePackage[hyperref=false]{biblatex}
+\RequirePackage[sorting=\BibLaTeXSortingSpec,hyperref=false]{biblatex}
 \fi
 
 \renewbibmacro{in:}{}
@@ -47,11 +56,6 @@
 \RequirePackage{eso-pic} %provides \AddToShipoutPicture
 \fi
 
-
-\DeclareOption{PhD}{\newcommand*\PhD{}}
-
-\DeclareOption*{\ClassError{Phlab-thesis class passed unknown option: '\@ptionlist{\@currname.\@currext}'}{Nothing more to say.}}
-\ProcessOptions\relax
 
 
 
