@@ -22,6 +22,8 @@
 \RequirePackage{setspace}
 \onehalfspace
 
+\hyphenpenalty=1024
+
 \RequirePackage[bottom]{footmisc}
 
 \RequirePackage[intoc]{nomencl}
