@@ -25,7 +25,7 @@ When a ``\,.\,'' does not end a sentence, it should be followed by a slash space
 For example: ``\texttt{The cat ran.  Smith et al.\textbackslash\ claim that.}'', yields
 \begin{center}\fbox{The cat ran.  Smith et al.\ claim that.}\end{center}
 %
-The line break suppressing space characer '\textasciitilde', also suppresses space enlargement.
+The line break suppressing space character '\textasciitilde', also suppresses space enlargement.
 ``\texttt{The cat ran.  Smith et al.\textasciitilde claim that.}'', yields
 \begin{center}\fbox{The cat ran.  Smith et al.~claim that.}\end{center}
 %
@@ -35,8 +35,8 @@ Notice in this last example the space after ``et al.'' is (slightly) enlarged, s
 
 
 \itembf{Typesetting of ``et al.'' and ``e.g.''}
-I prefer not to italize some latin-base abbreviations such as ``et al.'', ``e.g.'', or ``etc.''.
-I am aware of the general rule that latin (and other ``foreign'' words) should be italicized,
+I prefer not to italicize some Latin-base abbreviations such as ``et al.'', ``e.g.'', or ``etc.''.
+I am aware of the general rule that Latin (and other ``foreign'' words) should be italicized,
 and by that rule perhaps ``et al.'', ``e.g.'' and ``etc.''
 (short for \textit{et alia}, \textit{exampli gratia}, and \textit{et cetera}) should be italicized.
 However they are so common and ordinary in scientific writing that I think italicizing them
@@ -57,7 +57,7 @@ Similar macros are predefined for most common math functions, such as $\lg$ and 
 If necessary you can define your own math functions (operators) using the macros \texttt{\textbackslash DeclareMathOperator}, or \texttt{\textbackslash DeclareMathOperator*} from package \texttt{amsmath}.
 
 Finally there is the handy \texttt{\textbackslash text} macro, also from \texttt{amsmath}.
-Compare, \texttt{\$P[w|it rained yesterday]\$}'', yeilding:
+Compare, \texttt{\$P[w|it rained yesterday]\$}'', yielding:
 \begin{center}\fbox{$P[w|it rained yesterday]$}\end{center}
 With ``\texttt{\$\textbackslash text\{P\}[w|\textbackslash text\{it rained yesterday\}]\$}'', yielding:
 \begin{center}\fbox{$\text{P}[w|\text{it rained yesterday}]$}\end{center}
