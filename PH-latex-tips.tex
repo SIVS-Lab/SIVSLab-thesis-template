@@ -4,6 +4,7 @@
 %% Updated: 20220708
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{unicode-math}
 
 \title{A few \LaTeX\ tips}
 \author{Paul Horton}
@@ -31,7 +32,8 @@ The line break suppressing space character '\textasciitilde', also suppresses sp
 %
 Compared to: ``\texttt{The cat ran.  Smith et al. claim that.}'', yielding
 \begin{center}\fbox{The cat ran.  Smith et al. claim that.}\end{center}
-Notice in this last example the space after ``et al.'' is (slightly) enlarged, same as the space after ``cat ran.''.
+Notice in this last example the space after ``et al.'' is (slightly) enlarged, same as the space after ``cat ran.''.\\
+Generally one should use \texttt{et al.\textbackslash\ claim...}
 
 
 \itembf{Typesetting of ``et al.'' and ``e.g.''}
@@ -63,6 +65,16 @@ With ``\texttt{\$\textbackslash text\{P\}[w|\textbackslash text\{it rained yeste
 \begin{center}\fbox{$\text{P}[w|\text{it rained yesterday}]$}\end{center}
 Notice the ``P'' for probability is upright, like in normal text.  I think P for probability looks better this way than slanted like a variable $P$.
 \end{samepage}
+
+\itembf{Unicode Characters}
+In principle Unicode characters work when using \texttt{xelatex} as your \LaTeX\ engine.  In particular
+the \texttt{unicode-math} package allows conveniences such as using Greek letters like $α$ and symbols like $∞$ in
+math mode --- greatly improving the readability of your document source code.
+That being said, unicode characters don't always work well, so check the results carefully.
+For example, the unicode single quote may look bad depending on the fonts being used.
+Instead simply use the ascii character ``\texttt{'}''. For example \texttt{Fred's house}
+to consistently obtain a nice result:
+\begin{center}\fbox{Fred's house}\end{center}
 
 \end{itemize}
 
