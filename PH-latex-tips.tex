@@ -76,6 +76,15 @@ Instead simply use the ascii character ``\texttt{'}''. For example \texttt{Fred'
 to consistently obtain a nice result:
 \begin{center}\fbox{Fred's house}\end{center}
 
+\itembf{citations}
+The macros \verb|\cite| and \verb|\citep| can combine multiple citations.\\
+For example, \verb|...gene expression~\cite{Smith85},\cite{Lafayette86}|. will
+look something like 
+\begin{center}\fbox{gene expression [14][15].}\end{center}
+
+Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
+\begin{center}\fbox{gene expression [14,15].}\end{center}
+
 \end{itemize}
 
 \end{document}
