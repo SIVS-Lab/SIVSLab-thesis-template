@@ -76,10 +76,14 @@ Instead simply use the ascii character ``\texttt{'}''. For example \texttt{Fred'
 to consistently obtain a nice result:
 \begin{center}\fbox{Fred's house}\end{center}
 
+Similarly to produce a number range, say 10--20, the unicode character '–' may work fine, but
+depending on the fonts may not.  Using two ascii dashes ``--'', as in \texttt{10--20} consistently gives the dired result.
+
 \itembf{citations}
 The macros \verb|\cite| and \verb|\citep| can combine multiple citations.\\
-For example, \verb|...gene expression~\cite{Smith85},\cite{Lafayette86}|. will
-look something like 
+For example,\\
+\verb|...gene expression~\cite{Smith85},\cite{Lafayette86}|.\\
+Would look something like:
 \begin{center}\fbox{gene expression [14][15].}\end{center}
 
 Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
