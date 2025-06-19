@@ -1,6 +1,6 @@
 # Template/Example for Master's or PhD Thesis
 
-Developed by Paul Horton in 2021 for his lab in the computer science department at NCKU.  
+Developed by Paul Horton in 2021 for his lab in the computer science department at NCKU.
 Others are welcome to adapt this under the conditions of the Gnu Public License.
 
 ## Acknowledgements
@@ -22,7 +22,7 @@ The following two resources gave me ideas for this template.
 # Usage
 
 ## Download & Maintain
-Clone (not fork) this repository to your local computer.  
+Clone (not fork) this repository to your local computer.
 Place in your own gitlab/github repository with an informative
 project name like: 'YOUR-NAME-master-thesis'.
 
@@ -32,15 +32,15 @@ project name like: 'YOUR-NAME-master-thesis'.
     % sed s/-example//g compile-opts-example.tex > compile-opts.tex
 
 ## Edit Options
-Select desired options by uncommenting lines in compile-opts.tex  
+Select desired options by uncommenting lines in compile-opts.tex
 
 ## Edit Documents
-Edit thesis.tex as desired to change content.  
+Edit thesis.tex as desired to change content.
 In particular change:
-`\addbibresource{thesis-example.bib}` to point to your bib file.  
-`\documentclass[PhD]{PHlab-thesis}` --> `\documentclass{PHlab-thesis}` unless you are a PhD student.  
-`\documentclass{PHlab-thesis}` --> `\documentclass[BibLaTeXsortingNone]{PHlab-thesis}` if you do not want cited references to be sorted by author name.  
- 
+`\addbibresource{thesis-example.bib}` to point to your bib file.
+`\documentclass[PhD]{PHlab-thesis}` --> `\documentclass{PHlab-thesis}` unless you are a PhD student.
+`\documentclass{PHlab-thesis}` --> `\documentclass[BibLaTeXsortingNone]{PHlab-thesis}` if you do not want cited references to be sorted by author name.
+
 ## Compile Document
     % perl compile-thesis-from-scratch.pl compile-opts.tex
 
@@ -54,7 +54,7 @@ or manually:
     % xelatex  -jobname thesis  compile-opts.tex
 
 Not all of that is usually necessary;__
-if an edit does not affect citations, labels or nomenclature,  
+if an edit does not affect citations, labels or nomenclature,
 just:
 
     % xelatex  -jobname thesis  compile-opts.tex
@@ -84,4 +84,3 @@ should be enough to update.
 # Note on version control
 Please do not place thesis.pdf or temporarily files like thesis.aux in git!
 Version control is for source files.
-
