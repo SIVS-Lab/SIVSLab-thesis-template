@@ -19,8 +19,8 @@
 \maketitle
 
 
-\begin{itemize}
-\itembf{Suppressing the enlarged space after a ``\,.\,''}
+\section*{General Text Formatting}
+\subsection*{Suppressing the enlarged space after a ``\,.\,''}
 Usually ``\,.\,'' indicates the end of a sentence, so \TeX\ puts an enlarged space after it.
 For example: ``\texttt{The cat ran.  The dog ran too.}'', yields
 \begin{center}\fbox{The cat ran.  The dog ran too.}\end{center}
@@ -39,7 +39,7 @@ Notice in this last example the space after ``et al.'' is (slightly) enlarged, s
 Generally one should use \texttt{et al.\textbackslash\ claim...}
 
 
-\itembf{Typesetting of ``et al.'' and ``e.g.''}
+\subsection*{Typesetting of ``et al.'' and ``e.g.''}
 I prefer not to italicize some Latin-base abbreviations such as ``et al.'', ``e.g.'', or ``etc.''.
 I am aware of the general rule that Latin (and other ``foreign'' words) should be italicized,
 and by that rule perhaps ``et al.'', ``e.g.'' and ``etc.''
@@ -48,7 +48,20 @@ However they are so common and ordinary in scientific writing that I think itali
 simply distracts the readers eyes away from more important words.
 
 
-\itembf{math: ``\texttt{\textbackslash exp(x)}'' not ``\texttt{exp(x)}''.}
+\subsection*{Citations}
+The macros \verb|\cite| and \verb|\citep| can combine multiple citations.\\
+For example,\\
+\verb|...gene expression~\cite{Smith85},\cite{Lafayette86}|.\\
+Would look something like:
+\begin{center}\fbox{gene expression [14][15].}\end{center}
+
+Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
+\begin{center}\fbox{gene expression [14,15].}\end{center}
+
+
+
+\section*{Typesetting Math}
+\subsection*{Use ``\texttt{\textbackslash exp(x)}'' not ``\texttt{exp(x)}''.}
 In \TeX\ math mode, ``\texttt{exp}'' is interpreted as the product of the variables $e$, $x$ and $p$.
 This looks like:
 \begin{center}\fbox{$exp(x)$}\end{center}
@@ -69,7 +82,7 @@ With ``\texttt{\$\textbackslash text\{P\}[w|\textbackslash text\{it rained yeste
 Notice the ``P'' for probability is upright, like in normal text.  I think P for probability looks better this way than slanted like a variable $P$.
 \end{samepage}
 
-\itembf{Unicode Characters}
+\subsection*{Unicode Characters}
 In principle Unicode characters work when using \texttt{xelatex} as your \LaTeX\ engine.  In particular
 the \texttt{unicode-math} package allows conveniences such as using Greek letters like $α$ and symbols like $∞$ in
 math mode --- greatly improving the readability of your document source code.
@@ -81,17 +94,5 @@ to consistently obtain a nice result:
 
 Similarly to produce a number range, say 10--20, the unicode character '–' may work fine, but
 depending on the fonts may not.  Using two ascii dashes ``--'', as in \texttt{10--20} consistently gives the dired result.
-
-\itembf{citations}
-The macros \verb|\cite| and \verb|\citep| can combine multiple citations.\\
-For example,\\
-\verb|...gene expression~\cite{Smith85},\cite{Lafayette86}|.\\
-Would look something like:
-\begin{center}\fbox{gene expression [14][15].}\end{center}
-
-Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
-\begin{center}\fbox{gene expression [14,15].}\end{center}
-
-\end{itemize}
 
 \end{document}
