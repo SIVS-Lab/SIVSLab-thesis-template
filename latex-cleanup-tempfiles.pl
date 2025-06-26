@@ -22,7 +22,7 @@ my $dryRunP= shift    if @ARGV and $ARGV[0] eq '-n';
 
 for my $filename (@ARGV){
     $filename=~ /[.]tex$/  or  die  "Expected tex filename but got '$filename'\n";
-    
+
     my $filenameStem=  $filename=~ s/[.]tex$//r;
 
     for( qw(aux bbl bcf blg ilg log lof lot nav nlo nls out run.xml snm toc xdv) ){
@@ -33,4 +33,3 @@ for my $filename (@ARGV){
         }
     }
 }
-
