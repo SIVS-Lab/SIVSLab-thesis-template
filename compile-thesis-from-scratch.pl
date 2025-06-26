@@ -6,7 +6,7 @@
 #
 #  Description:  Compile thesis latex file via a config latex file which includes it.
 #
-use feature qw(say);
+use v5.28;
 use strict;
 use warnings;
 use Data::Lock 'dlock';
@@ -71,8 +71,8 @@ dlock my $mainSourceFilenameStem=
 sub run{
     say  "STAGE:  $_[0]";
     0 == system $_[0]   or   die  "Command failed: $_[0]"    unless $dryRunP;
-}        
-        
+}
+
 
 
 # Clean up temp files
@@ -94,4 +94,3 @@ run   "xelatex  -jobname $mainSourceFilenameStem  -halt-on-error  -no-pdf  $optC
 
 run   "makeindex  $mainSourceFilenameStem.nlo  -s nomencl.ist  -o $mainSourceFilenameStem.nls";
 run   "xelatex  -jobname $mainSourceFilenameStem  -halt-on-error  $optConfigFilename";
-
