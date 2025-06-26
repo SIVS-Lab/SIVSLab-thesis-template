@@ -4,7 +4,7 @@
 
 \RequirePackage{etoolbox}
 
-\RequirePackage{fonts-config}
+\RequirePackage{PHlab-fonts-config}%  Our setup for CJK and fonts.
 
 \RequirePackage{array}
 
