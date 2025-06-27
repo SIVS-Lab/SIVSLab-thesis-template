@@ -43,10 +43,10 @@
 \ifdefined\optHyperlinks
 \RequirePackage[hyperfootnotes=false]{hyperref}
 \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
-\RequirePackage[sorting=\BibLaTeXSortingSpec]{biblatex}
+\RequirePackage[natbib=true,style=apa,sorting=\BibLaTeXSortingSpec]{biblatex}
 \else
 \RequirePackage[draft,hyperfootnotes=false]{hyperref}
-\RequirePackage[sorting=\BibLaTeXSortingSpec,hyperref=false]{biblatex}
+\RequirePackage[natbib=true,style=apa,sorting=\BibLaTeXSortingSpec,hyperref=false]{biblatex}
 \fi
 
 \renewbibmacro{in:}{}
