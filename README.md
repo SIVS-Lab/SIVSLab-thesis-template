@@ -78,8 +78,9 @@ should be enough to update.
     compile-thesis-from-scratch.pl   Full compile from scratch.
     latex-cleanup-tempfiles.pl       Delete latex temp files.
 
-## LaTex Tips
-    PH-latex-tips.tex  A few tips on writing in LaTeX.
+## LaTex Tips (read the source code comments in these files)
+    thesis-example.tex  Thesis template.
+    PH-latex-tips.tex   A few tips on writing in LaTeX. Compile with xelatex.
 
 # Note on version control
 Please do not place thesis.pdf or temporarily files like thesis.aux in git!
