@@ -33,6 +33,7 @@
 
 \DeclareOption{PhD}{\newcommand*\PhD{}}
 
+
 \newcommand*\BibLaTeXSortingSpec{nty}
 \DeclareOption{BibLaTeXsortingNone}{\renewcommand\BibLaTeXSortingSpec{none}}
 
@@ -43,10 +44,10 @@
 \ifdefined\optHyperlinks
 \RequirePackage[hyperfootnotes=false]{hyperref}
 \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
-\RequirePackage[natbib=true,style=ieee,sorting=\BibLaTeXSortingSpec]{biblatex}
+\RequirePackage[natbib=true,style=ieee,citestyle=numeric-comp,sorting=\BibLaTeXSortingSpec,numeric-comp]{biblatex}
 \else
 \RequirePackage[draft,hyperfootnotes=false]{hyperref}
-\RequirePackage[natbib=true,style=ieee,sorting=\BibLaTeXSortingSpec,hyperref=false]{biblatex}
+\RequirePackage[natbib=true,style=ieee,citestyle=numeric-comp,sorting=\BibLaTeXSortingSpec,hyperref=false]{biblatex}
 \fi
 
 \renewbibmacro{in:}{}
