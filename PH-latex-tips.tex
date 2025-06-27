@@ -7,12 +7,35 @@
 %%
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{derivative}
 \usepackage{unicode-math}
+
+\usepackage{xeCJK}
+\xeCJKsetup{CJKecglue={\hskip 0.08em plus 0.07\baselineskip}}
+\setCJKmainfont[Path=fonts/,AutoFakeBold,AutoFakeSlant]{kaiu.ttf}
+
+
+%% In case the monospace font used does not include glyphs for 𝐚,𝐯,𝐅,𝚝
+%% Used when I include LaTeX source code verbatim in the document.
+\usepackage{newunicodechar}
+\newunicodechar{𝐚}{\textbf{a}}
+\newunicodechar{𝐅}{\textbf{F}}
+\newunicodechar{𝐯}{\textbf{v}}
+\newunicodechar{𝚝}{\texttt{t}}
+
+\setlength{\parskip}{\baselineskip}%  Vertical space between paragraphs.
+\setlength{\parindent}{0pt}%  Do not indent start of paragraphs.
+\newcommand*\𝚝[1]{\texttt{#1}}%  Shortcut macro.
+
+% Example macro with different expansion in or out of math mode.
+\newcommand*\softmax{\ifmmode\text{softmax}\else\texttt{softmax}\fi}
+
+
+\newcommand*\hSpace{}%  just to check that it is not defined.
 
 \title{A few \LaTeX\ tips}
 \author{Paul Horton}
 
-\newcommand*\itembf[1]{\item \textbf{#1}\\}
 
 \begin{document}
 
@@ -22,21 +45,21 @@
 \section*{General Text Formatting}
 \subsection*{Suppressing the enlarged space after a ``\,.\,''}
 Usually ``\,.\,'' indicates the end of a sentence, so \TeX\ puts an enlarged space after it.
-For example: ``\texttt{The cat ran.  The dog ran too.}'', yields
+For example: ``\𝚝{The cat ran.  The dog ran too.}'', yields
 \begin{center}\fbox{The cat ran.  The dog ran too.}\end{center}
 When a ``\,.\,'' does not end a sentence, it should be followed by a slash space.
 %
-For example: ``\texttt{The cat ran.  Smith et al.\textbackslash\ claim that.}'', yields
+For example: ``\𝚝{The cat ran.  Smith et al.\textbackslash\ claim that.}'', yields
 \begin{center}\fbox{The cat ran.  Smith et al.\ claim that.}\end{center}
 %
 The line break suppressing space character '\textasciitilde', also suppresses space enlargement.
-``\texttt{The cat ran.  Smith et al.\textasciitilde claim that.}'', yields
+``\𝚝{The cat ran.  Smith et al.\textasciitilde claim that.}'', yields
 \begin{center}\fbox{The cat ran.  Smith et al.~claim that.}\end{center}
 %
-Compared to: ``\texttt{The cat ran.  Smith et al. claim that.}'', yielding
+Compared to: ``\𝚝{The cat ran.  Smith et al. claim that.}'', yielding
 \begin{center}\fbox{The cat ran.  Smith et al. claim that.}\end{center}
 Notice in this last example the space after ``et al.'' is (slightly) enlarged, same as the space after ``cat ran.''.\\
-Generally one should use \texttt{et al.\textbackslash\ claim...}
+Generally one should use \𝚝{et al.\textbackslash\ claim...}
 
 
 \subsection*{Typesetting of ``et al.'' and ``e.g.''}
@@ -46,13 +69,31 @@ and by that rule perhaps ``et al.'', ``e.g.'' and ``etc.''
 (short for \textit{et alia}, \textit{exampli gratia}, and \textit{et cetera}) should be italicized.
 However they are so common and ordinary in scientific writing that I think italicizing them
 simply distracts the readers eyes away from more important words.
+So I suggesting simply using \verb|et al.| or possibly \verb|et~al.|, as discussed in the following subsection.
+
+
+\subsection*{Keep it together with \textasciitilde\ ties}
+As we just saw, we can have use \verb|~| as a special space character which will prevent line breaks.
+It is very useful for example in \verb|fig.~\ref{fig:workflow}|, this not only gives us a space of appropriate width,
+it also prevents the a potential bad line break like:
+
+\begin{center}\fbox{\begin{tabular}{@{}l@{}}
+Our workflow is described in Fig.\\1.  Some more text...
+\end{tabular}}\end{center}
+
+When we want:
+
+\begin{center}\fbox{\begin{tabular}{@{}l@{}}
+Our workflow is described in Fig.~1.\\Some more text...
+\end{tabular}}\end{center}
+
 
 
 \subsection*{Citations}
-The macros \verb|\cite| and \verb|\citep| can combine multiple citations.\\
+The macro \verb|\cite| can combine multiple citations.\\
 For example,\\
 \verb|...gene expression~\cite{Smith85},\cite{Lafayette86}|.\\
-Would look something like:
+Might look something like:
 \begin{center}\fbox{gene expression [14][15].}\end{center}
 
 Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
@@ -61,38 +102,244 @@ Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
 
 
 \section*{Typesetting Math}
-\subsection*{Use ``\texttt{\textbackslash exp(x)}'' not ``\texttt{exp(x)}''.}
-In \TeX\ math mode, ``\texttt{exp}'' is interpreted as the product of the variables $e$, $x$ and $p$.
+
+\subsection*{Packages}
+For mathematics, following two packages are a good start.
+
+\begin{verbatim}
+    \usepackage{amsmath}
+    \usepackage{unicode-math}
+\end{verbatim}
+
+If you have equations with derivatives, I also recommend:
+
+\begin{verbatim}
+    \usepackage{derivative}
+\end{verbatim}
+
+\subsection*{\𝚝{align} and \𝚝{align*}}
+Formatting equations is easy.  I mostly use \𝚝{align*}.
+
+For example,
+
+\begin{verbatim}
+    \begin{align*}
+    𝐅  &=  m \odv{𝐯}{t}\\[0.5ex]
+       &=  m \, 𝐚
+    \end{align*}
+\end{verbatim}
+
+Which looks like this:
+\vspace{1ex}\hrule
+\begin{align*}
+𝐅  &=  m \odv{𝐯}{t}\\[0.5ex]
+   &=  m \, 𝐚
+\end{align*}
+\hrule\vspace{2ex}
+
+The \𝚝{[0.5ex]} adds extra space between the two lines, where \𝚝{ex} represents the height of an ``x''.
+Not really necessary here, but is often useful and is not limited to math mode.
+Lines in regular text can also be spaced manually by adding \𝚝{\backslash\backslash[1ex]} at the end.
+
+If you want to label the equation for references use plain \𝚝{align}.
+%
+\begin{verbatim}
+    \begin{align}
+    e^{iπ} + 1 = 0  \label{EulersIdentity}
+    \end{align}
+
+    Equation~\ref{EulersIdentity} is remarkable.
+\end{verbatim}
+
+Which looks like:
+\vspace{1ex}\hrule
+\begin{align}
+e^{iπ} + 1 = 0  \label{EulersIdentity}
+\end{align}
+
+Equation~\ref{EulersIdentity} is remarkable.
+\vspace{1ex}\hrule\vspace{2ex}
+
+This example also illustrates that \𝚝{align} can be used with just a single equation line.
+\𝚝{align*} also works conveniently with a single equation line.
+
+
+\subsection*{Use ``\𝚝{\textbackslash exp(x)}'' not ``\𝚝{exp(x)}''.}
+In \TeX\ math mode, ``\𝚝{exp}'' is interpreted as the product of the variables $e$, $x$ and $p$.
 This looks like:
 \begin{center}\fbox{$exp(x)$}\end{center}
-What you want is ``\texttt{\textbackslash exp(x)}'', which looks like:
+What you want is ``\𝚝{\textbackslash exp(x)}'', which looks like:
 \begin{center}\fbox{$\exp(x)$}\end{center}
 
 Similar macros are predefined for most common math functions, such as $\lg$ and $\sin$ etc.\
-(either in basic \LaTeX\ or in the standard package \texttt{amsmath}).
+(either in basic \LaTeX\ or in the standard package \𝚝{amsmath}).
 
 \begin{samepage}
-If necessary you can define your own math functions (operators) using the macros \texttt{\textbackslash DeclareMathOperator}, or \texttt{\textbackslash DeclareMathOperator*} from package \texttt{amsmath}.
+If necessary you can define your own math functions (operators) using the macros \𝚝{\textbackslash DeclareMathOperator}, or \𝚝{\textbackslash DeclareMathOperator*} from package \𝚝{amsmath}.
 
-Finally there is the handy \texttt{\textbackslash text} macro, also from \texttt{amsmath}.
-Compare, \texttt{\$P[w|it rained yesterday]\$}'', yielding:
-\begin{center}\fbox{$P[w|it rained yesterday]$}\end{center}
-With ``\texttt{\$\textbackslash text\{P\}[w|\textbackslash text\{it rained yesterday\}]\$}'', yielding:
+Finally there is the handy \𝚝{\textbackslash text} macro, also from \𝚝{amsmath}.\\
+Compare, \𝚝{\$P[w|it rained yesterday]\$},\\
+yielding:
+\begin{center}\fbox{$P[w|it rained yesterday ]$}\end{center}
+With \𝚝{\$\textbackslash text\{P\}[w|\textbackslash text\{it rained yesterday\}]\$},\\
+yielding:
 \begin{center}\fbox{$\text{P}[w|\text{it rained yesterday}]$}\end{center}
 Notice the ``P'' for probability is upright, like in normal text.  I think P for probability looks better this way than slanted like a variable $P$.
 \end{samepage}
 
+It can be made to look slightly better using \verb|\,| to adjust spacing\\
+
+\𝚝{\$\textbackslash text\{P\}[\textbackslash, w \textbackslash,|\textbackslash, \textbackslash text\{it rained yesterday\} \textbackslash,]\$}\\[.5ex]
+yielding:
+\begin{center}\fbox{$\text{P}[\, w \,|\, \text{it rained yesterday} \,]$}\end{center}
+
+
+
+
+\section*{Adjusting blank space}
+As we have just seen, in math mode one can use special macros such as \verb|\;| (small),  \verb|\,| (smaller), and \verb|\!| negative
+to manually adjust horizontal space.
+
+There are other spacing macros as well such as \verb|\quad| etc., which work both in and out of math mode.
+The most flexible of these are \verb|\hspace*| and \verb|\vspace*|.
+For horizontal space one can use the \verb|\hspace*| macro.
+It takes a length argument; for example \verb|\hspace*{2mm}| adds a 2mm space and \verb|\hspace*{0.5em}| adds approximately one
+half the width of the letter ``m'' (in whatever the current font/font-size is).  For vertical space one can use
+\verb|\vspace*|.  This macro also takes a length argument, so for example \verb|\vspace*{2mm}| adds a 2mm space
+and \verb|\hspace*{0.5ex}| adds approximately one half the height of the letter ``x''.
+For both macros, negative lengths are allowed.
+\verb|\vspace*{-2ex}| for example will \textit{remove} vertical space.
+This can be useful, but if you overdo it your lines will overlaps.
+Try \verb|cat\\\vspace*{-2ex}dog|, it might result in something like:
+%
+\begin{center}cat\\\vspace*{-2ex}dog\end{center}
+
+
 \subsection*{Unicode Characters}
-In principle Unicode characters work when using \texttt{xelatex} as your \LaTeX\ engine.  In particular
-the \texttt{unicode-math} package allows conveniences such as using Greek letters like $α$ and symbols like $∞$ in
+In principle Unicode characters work when using \𝚝{xelatex} as your \LaTeX\ engine.  In particular
+the \𝚝{unicode-math} package allows conveniences such as using Greek letters like $α$ and symbols like $∞$ in
 math mode --- greatly improving the readability of your document source code.
 That being said, unicode characters don't always work well, so check the results carefully.
 For example, the unicode single quote may look bad depending on the fonts being used.
-Instead simply use the ascii character ``\texttt{'}''. For example \texttt{Fred's house}
+Instead simply use the ascii character ``\𝚝{'}''. For example \𝚝{Fred's house}
 to consistently obtain a nice result:
 \begin{center}\fbox{Fred's house}\end{center}
 
 Similarly to produce a number range, say 10--20, the unicode character '–' may work fine, but
-depending on the fonts may not.  Using two ascii dashes ``--'', as in \texttt{10--20} consistently gives the desired result.
+depending on the fonts may not.  Using two ascii dashes ``--'', as in \𝚝{10--20} consistently gives the desired result.
+
+
+\section*{Macros}
+\subsection*{Spaces are macro names are absorbed!}
+
+The \verb|\TeX| macro is a simply unary macro with typesets ``TeX'' in a fancy way.
+Unary means it does not take any arguments.
+
+A unary macro can be written with empty braces, like \verb|\TeX{}|.
+Alternatively, or one can skip the braces and just write \verb|\TeX|,
+but when the following character is a space the results may surprise you.
+
+\verb|\TeX{} programming is a deep subject and not easily mastered.|\\*[-3ex]%  \\* to break line, but disallow page break.  -3ex to reduce vertical space.
+\begin{center}\fbox{\TeX{} programming is a deep subject and not easily mastered.}\end{center}
+
+\verb|\TeX programming is a deep subject and not easily mastered.|\\*[-3ex]
+\begin{center}\fbox{\TeX programming is a deep subject and not easily mastered.}\end{center}
+
+\verb|\TeX\ programming is a deep subject and not easily mastered.|\\*[-3ex]
+\begin{center}\fbox{\TeX\ programming is a deep subject and not easily mastered.}\end{center}
+
+The difference is ``\verb|\TeX\ |'' with a ``\backslash\ `` versus just ``\verb|\TeX |''.
+The take-home message is use ``\verb|\TeX{} |" or ``\verb|\Tex\ |''.
+
+
+Why does ``\verb|\Tex\ |'' not work as intended?
+Here I can only give a hand-wavy answer.
+A space character immediately following a macro name is swollen by the \TeX\ parser while it is looking for the end of the macro name
+and consequently is not rendered in the output.
+In the case of ``\verb|\TeX\ |'' the \backslash signals the end of the macro name allowing
+the following space character to be processed as a space rather than just an end-of-macro name
+
+If you are curious about the precise mechanism involved, see the link to the \𝚝{overleaf.com} site
+given in the following section.
+
+
+\section*{Defining your own Macros}
+As just mentioned, defining \TeX\ macros is a deep subject; but simple ones are easy enough and quite useful.
+
+This ``softmax'' macro for example:
+
+\verb|\newcommand*\softmax{\ifmmode\text{softmax}\else\texttt{softmax}\fi}|
+
+It is used like:\\[-2ex]
+\begin{verbatim}
+\softmax\ can be used to obtain a probability vector.
+
+It is defined as:
+\begin{align*}
+pᵢ = \frac{eᵢ}{Z} = \frac{\exp(aᵢ)}{\sum_j \exp(aⱼ)}  \hspace*{3em} \softmax
+\end{align*}
+\end{verbatim}
+
+Which looks like this:
+\vspace{1ex}\hrule
+\softmax\ can be used to obtain a probability vector.
+
+It is defined as:
+\begin{align*}
+pᵢ = \frac{eᵢ}{Z} = \frac{\exp(aᵢ)}{\sum_j \exp(aⱼ)}  \hspace*{3em} \softmax
+\end{align*}
+\hrule\vspace{2ex}
+
+
+As you may have guessed, the \verb|\ifmmode|, \verb|\else|, and \verb|\fi| form an \𝚝{if---then---else} construct
+which allows different formatting in and out of math mode.
+
+
+%% One of my favorite personal macros is allows me to write
+%%
+%%   $\frac{eᵢ}{Z}$    and   $／{eᵢ/Z}$
+%%
+%% One be nice to share it with students here, but it uses helper macros
+%% to parse its argument and would be somewhat involved to describe.
+%%
+%% Also I would need to stipulate a font including a glyph for '／'
+
+
+\subsection*{How to avoid macro name collision}
+\LaTeX\ macros live in a global name space.  If you try to use \verb|\newcommand*| to define a
+macro which already exists, you will get a fatal error when compiling your document.
+
+A couple of tips to avoid name collisions are 1. use upper-case letters or 2. use non-ascii characters.
+Most standard macros in \LaTeX\ are all lower case, so for example we have \verb|\hspace|, but probably not \verb|\hSpace| predefined.
+Better yet, unicode non-ascii symbols are Chinese characters are nearly guaranteed to be undefined as macro names.
+This is convenient for shortcut macros of just one or two characters.
+
+For example I one can define:\quad \verb|\newcommand*\𝚝[1]{\texttt{#1}}|\\
+and then use \verb|\𝚝{MaskedPanGenie}|, instead of \verb|\texttt{MaskedPanGenie}| to
+obtain ``\𝚝{MaskedPanGenie}''.  The tricky thing here is the ``𝚝'' of \verb|\𝚝{MaskedPanGenie}| is
+not the usual ``t'' character (ascii code x74) but rather mathematical monospace small t character (unicode codepoint x1D69D).
+
+
+\subsection*{Numbers in macro names}
+By default macro names cannot include numerals.
+
+So for example \verb|\newcommand*{x2}{x^2}| won't compile.  Try it and see.
+The error message may be rather unhelpful.
+When I tried it I got:
+
+\begin{center}\verb|! LaTeX Error: Missing \begin{document}.|\end{center}
+
+In principle one can remove this constraint on macro names, by manipulating what are called \textit{catcodes}.
+But I suspect you may find that path more trouble that it is worth.
+
+\subsection*{Where to Learn More About Macros}
+To learn about catcodes and other aspects of \LaTeX\ macro parsing,
+I recommend the gentle yet detailed explanation included as part of the \𝚝{overleaf.com} \LaTeX\ documentation.
+
+The documentation home is:\quad \verb|https://www.overleaf.com/learn|
+
+And in particular the section explaining \LaTeX\ macro parsing starts here.\\*
+\verb|https://www.overleaf.com/learn/latex/How_TeX_macros_actually_work:_Part_1|
+
 
 \end{document}
