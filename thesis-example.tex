@@ -43,9 +43,28 @@
 
 
 \newcommand*\Keywords英文{bioinformatics, genomics, string algorithms}
+
+
+%%  As much as possible, the abstract should be stand alone.
+%%  Many people will read only the abstract, not the main paper.
+%%  In fact after publication somtimes only the abstract is visable (on the University webpage for example?)
+%%
+%%  So it is worth the effort to write a good abstract.  中文的摘要也要寫的好!
+%%
+%%  In the abstact, citations should be kept to a minimum.
+%%  But sometimes it makes sense to cite one or two key papers in the abstract
+%%  In that case, write the authors names out, as in:
+%%
+%%     Sequence logos (Schneider \& Stephens, NAR, 1990)
+%%
+%%  Instead of using \cite{SS90}, which would produce a numerical cite like:
+%%
+%%     Sequence logos [4]   <--  [4] here is not useful when viewing only the abstract.
+%%
 \newcommand*\Abstract英文{%
 \textbf{BACKGROUND:}
-Sequence logos can effectively visualize position specific base preferences evident in a collection of binding sites of some transcript factor.  But those preferences usually fall far short of fully explaining binding specificity.
+Sequence logos (Schneider \& Stephens, NAR, 1990)      %% Manually inline citations in the abstract.
+can effectively visualize position specific base preferences evident in a collection of binding sites of some transcript factor.  But those preferences usually fall far short of fully explaining binding specificity.
 Interestingly, several transcription factors bind sites of potentially methylated DNA.  For example, MYC binds CpG sites.  This may increase binding specificity as such sites are 1) highly under-represented in the genome, and 2) offer additional, tissue specific information in the form of hypo- or hyper-methylation.  Fortunately, data suitable to look into this possibility (e.g.\ bisulfite sequencing) is readily available.\\
 \textbf{METHOD:}
 We developed MethylSeqlogo, an extension of sequence logos which adds DNA methylation information to sequence logos.  MethylSeqlogo includes new elements to indicate DNA methylation and under-represented dimers in each position of a set of aligned binding sites.  Our method displays information from both DNA strands, and takes into account the sequence context (CpG or other) and genome region (promoter versus whole genome) appropriate to properly assess the expected background dimer frequency and level of methylation.\\
@@ -58,7 +77,7 @@ Our freely available software enables users to explore large-scale bisulfite and
 
 \newcommand*\Keywords中文{生命科學、基因組、字串演算法}
 \newcommand*\Abstract中文{%
-MethylSeqLogo...衍伸sequence logo的視覺化方法改善包括DNA甲基化的資訊。核基因體胞嘧啶甲基化為脊椎動物重要的表觀遺傳之一。可以經過亞硫酸鹽處理之後定序DNA的實驗(bisulfite sequencing)得到胞嘧啶甲基化的資訊。
+MethylSeqLogo...延伸sequence logo的視覺化方法改善包括DNA甲基化的資訊。核基因體胞嘧啶甲基化為脊椎動物重要的表觀遺傳之一。可以經過亞硫酸鹽處理之後定序DNA的實驗(bisulfite sequencing)得到胞嘧啶甲基化的資訊。
 甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。甲基化的資訊。
 }
 
