@@ -82,6 +82,17 @@ should be enough to update.
     thesis-example.tex  Thesis template.
     PH-latex-tips.tex   A few tips on writing in LaTeX. Compile with xelatex.
 
-# Note on version control
-Please do not place thesis.pdf or temporarily files like thesis.aux in git!
+
+# General Advice
+
+## Version Control
+Please do **not** place thesis.pdf or temporarily files like thesis.aux in git!
 Version control is for source files.
+
+## Filenames (including directory names)
+Please use unix-friendly filenames.
+你們是資訊系的學生而不是法文系之類!
+In particular, filenames should not include spaces.
+For example, if you have a directory holding run time tables,
+do **not** name it ~~run time tables~~,
+instead try `run-time-tables' or `runTimeTables'
