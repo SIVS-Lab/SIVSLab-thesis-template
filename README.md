@@ -95,4 +95,4 @@ Please use unix-friendly filenames.
 In particular, filenames should not include spaces.
 For example, if you have a directory holding run time tables,
 do **not** name it ~~run time tables~~,
-instead try `run-time-tables' or `runTimeTables'
+instead try `run-time-tables` or `runTimeTables`
