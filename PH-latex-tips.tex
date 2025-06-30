@@ -99,10 +99,23 @@ Might look something like:
 Better to use \verb|\cite{Smith85,Lafayette86}|, producing output like:
 \begin{center}\fbox{gene expression [14,15].}\end{center}
 
+Here, I also have a writing style suggestion.
+The English (or whatever language) should read naturally \textit{without} the citation numbers.
+For example,
+
+{\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{p{3em}l}
+ &  1. Okay:  ``Many methods use this principle [8,9].''\\
+ &  2. Okay:  ``As described in by Schneider et al. [13].''\\
+ &  3. Nope:  ``As described in [13].''
+\end{tabular}
+}
+
+The first two look good.  I don't like the third one, probably because
+after stripping the number it becomes ``As described in.'' which is ungrammatical.
 
 
 \section*{Typesetting Math}
-
 \subsection*{Packages}
 For mathematics, following two packages are a good start.
 
