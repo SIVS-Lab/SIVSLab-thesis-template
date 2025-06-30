@@ -1,5 +1,7 @@
-\newcommand*\SelectFontsize[2]{\fontsize{#1}{#1}\selectfont\mdseries#2\par}
-\newcommand*\SelectFontsizeBF[2]{\fontsize{#1}{#1}\selectfont\bfseries#2\par}
+%% Note the double {{ }}, this grouping contains the fontsize change to the scope of the macro.
+\newcommand*\SelectFontsize[2]{{\fontsize{#1}{#1}\selectfont\mdseries#2\par}}
+\newcommand*\SelectFontsizeBF[2]{{\fontsize{#1}{#1}\selectfont\bfseries#2\par}}
+
 \newcommand*\SignatureRule[1][6]{\rule{#1cm}{0.3mm}}
 \newcommand*\AddToContents[1]{\newpage\phantomsection\addcontentsline{toc}{chapter}{#1}}
 
