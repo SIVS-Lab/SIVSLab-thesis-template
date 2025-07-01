@@ -1,11 +1,17 @@
 %  Default sorts references section in alphabetical order
 %  Perhaps that is the most common way to format thesis at NCKU(?)
+%
+%  Compile like this, adjusting filenames as needed.
+%  Compile: perl compile-thesis-from-scratch.pl compile-opts-example.tex
+%  Compile: xelatex  -jobname thesis  compile-opts-example.tex
+%
 \documentclass[PhD]{PHlab-thesis}
 
-%  Use this BibLaTeXsortingNone option to sort references in order of citation.
-%  This order is common in life sciences journals,
-%  and I like it better when there are not too many references (less than 50 or so).
-%\documentclass[PhD,BibLaTeXsortingNone]{PHlab-thesis}
+%  參考文獻排序
+%  To sort references in order of citation,
+%  Use the documentclass option BibLaTeXsortingNone.
+%  That ordering is common in life sciences journals, and I like it better when there less than ≈50 references.
+% \documentclass[PhD,BibLaTeXsortingNone]{PHlab-thesis}
 
 
 \addbibresource{thesis-example.bib}
@@ -178,6 +184,14 @@ $\overline{v}\,|\,\scriptstyle{\textsf{context},i}$  & The average methylation v
 
 \section{Proposed Scheme}
 Write a bunch of stuff here.
+
+We propose the following items:
+%
+\begin{itemize}
+\item This is the first item we propose.
+\item And this is the second.
+\item But don't for get the third one!
+\end{itemize}
 
 
 \chapter{Results}
