@@ -210,6 +210,7 @@ yielding:
 
 
 \section*{Adjusting blank space}
+\subsection*{Manual Adjustment}
 As we have just seen, in math mode one can use special macros such as \verb|\;| (small),  \verb|\,| (smaller), and \verb|\!| negative
 to manually adjust horizontal space.
 
@@ -226,6 +227,19 @@ This can be useful, but if you overdo it your lines will overlaps.
 Try \verb|cat\\\vspace*{-2ex}dog|, it might result in something like:
 %
 \begin{center}cat\\\vspace*{-2ex}dog\end{center}
+
+
+\subsection*{Other Blank Space Related Tips}
+\subsubsection*{Avoid the ``H'' option of the \𝚝{figure} environment}
+Using the ``H'' option of the \𝚝{figure} environment can cause strange vertical streching of space.
+The problem is that ``H'' forces \LaTeX\ to immediately ship out the figure.  If the figure is too big to
+fit on the current page; the \LaTeX\ is forced to end the current page even if it does not have a full page
+worth of content on it.  The observable symptom of such a page is too much vertical space, because \LaTeX\ has
+to stretch out the insufficient contents to span from the top to the bottom of the page.
+
+Instead try perhaps ``ht'' as in\\
+\verb|\begin{figure}[ht]...|
+
 
 
 \subsection*{Unicode Characters}
