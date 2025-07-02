@@ -85,18 +85,26 @@
 %   What is considered "Nearly universally known" may vary from person to person
 %   － when in doubt assume some readers may not know.
 %
+%   Actually, in the example abstract below is not a good example in this sense.
+%   It is from a research article in a specialized journal and contains several protein names:
+%   MYC, CEBPB, and ZBTB33.
+%   These are in some sense abbreviations, but usually treated just as names.
+%   There is also another special abbreviation CpG.
+%   Note that I at least try to give a hint about them;
+%   for example "transcription factor MCY" and "CpG dimer".
+%
 \newcommand*\Abstract英文{%
 \textbf{BACKGROUND:}
 Sequence logos (Schneider \& Stephens, NAR, 1990)      %% Manually inline citations in the abstract.
 can effectively visualize position specific base preferences evident in a collection of binding sites of some transcript factor.  But those preferences usually fall far short of fully explaining binding specificity.
-Interestingly, several transcription factors bind sites of potentially methylated DNA.  For example, MYC binds CpG sites.  This may increase binding specificity as such sites are 1) highly under-represented in the genome, and 2) offer additional, tissue specific information in the form of hypo- or hyper-methylation.  Fortunately, data suitable to look into this possibility (e.g.\ bisulfite sequencing) is readily available.\\
+Interestingly, several transcription factors bind sites of potentially methylated DNA.  For example, the transcription factor MYC binds CpG dimer sites.  This may increase binding specificity as such sites are 1) highly under-represented in the genome, and 2) offer additional, tissue specific information in the form of hypo- or hyper-methylation.  Fortunately, data suitable to look into this possibility (e.g.\ bisulfite sequencing) is readily available.\\
 \textbf{METHOD:}
-We developed MethylSeqlogo, an extension of sequence logos which adds DNA methylation information to sequence logos.  MethylSeqlogo includes new elements to indicate DNA methylation and under-represented dimers in each position of a set of aligned binding sites.  Our method displays information from both DNA strands, and takes into account the sequence context (CpG or other) and genome region (promoter versus whole genome) appropriate to properly assess the expected background dimer frequency and level of methylation.\\
+We developed MethylSeqlogo, an extension of sequence logos which adds DNA methylation information to sequence logos.  MethylSeqlogo includes new elements to indicate DNA methylation and under-represented dimers in each position of a set of aligned binding sites.  Our method displays information from both DNA strands, and takes into account the sequence context (CpG dimer or other) and genome region (promoter versus whole genome) appropriate to properly assess the expected background dimer frequency and level of methylation.\\
 When designing MethylSeqlogo, we took care to preserve the usual sequence logo meaning of heights; in which the relative height of nucleotides within a column represents their proportion in the binding sites, while the absolute height of each column represents information (relative entropy) and the height of all columns added together represents total information.\\
 \textbf{RESULTS:}
 We present several figures illustrating the utility of using MethylSeqlogo to summarize data from CpG binding transcription factors.  The logos show that unmethylated CpG binding sites are a feature of transcription factors such as Myc and ZBTB33, while some other CpG binding transcription factors, such as CEBPB, appear methylation neutral.
 We also compare MethylSeqlogo with two previously reported ways to create methylation aware sequence logos and conclude that MethylSeqlogo compares favorably to those methods.
-Our freely available software enables users to explore large-scale bisulfite and ChIP sequencing data sets --- and in the process obtain publication quality figures.}
+Our freely available software enables users to explore large-scale bisulfite and ChIP (Chromatin ImmunoPrecipitation) sequencing data sets --- and in the process obtain publication quality figures.}
 
 
 \newcommand*\Keywords中文{生命科學、基因組、字串演算法}
@@ -121,11 +129,13 @@ MethylSeqLogo...延伸sequence logo的視覺化方法改善包括DNA甲基化的
   }]}
 
 \nomenclature[A]{$\lg$}{Logarithm base 2}
-\nomenclature[A]{KL\ Divergence}{Kullback-Liebler Divergence}
+\nomenclature[A]{KL Divergence}{Kullback-Liebler Divergence}
+\nomenclature[A]{ChIP}{Chromatin ImmunoPrecipitation}
+\nomenclature[Z]{CEBPB}{CCAAT/Enhancer-Binding Protein Beta}
 \nomenclature[Z]{Myc}{MYC proto-oncogene}
 \nomenclature[Z]{USF-1}{Upstream stimulatory factor 1}
 
-\printnomenclature[5cm]
+\printnomenclature[5cm]% Width of first field in Nomenclature; adjust as necessary.
 
 \newpage
 \setcounter{page}{1}
@@ -179,7 +189,7 @@ $\overline{v}\,|\,\scriptstyle{\textsf{context},i}$  & The average methylation v
 
 % For long section names use: \section[short]{longer...} to make header look better.
 % When given, the optional [short] argument is used for headers.
-\section[shorter sec. name]{Section name which is too long to fit in the header}
+\section[Shorter Section Name]{Section name which is too long to fit in the header}
 
 
 \section{Proposed Scheme}
