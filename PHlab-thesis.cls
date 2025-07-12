@@ -20,7 +20,7 @@
 \geometry{verbose,a4paper,tmargin=2.3cm,bmargin=3cm,lmargin=2.5cm,rmargin=3cm}
 
 \RequirePackage{setspace}
-\onehalfspace
+\onehalfspace%  設行距為1.5倍
 
 \hyphenpenalty=1024
 
