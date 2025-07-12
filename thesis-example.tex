@@ -5,7 +5,8 @@
 %  Compile: perl compile-thesis-from-scratch.pl compile-opts-example.tex
 %  Compile: xelatex  -jobname thesis  compile-opts-example.tex
 %
-\documentclass[PhD]{PHlab-thesis}
+\documentclass{PHlab-thesis}
+% \documentclass[PhD]{PHlab-thesis}  <-- 博士生
 
 %  參考文獻排序
 %  有兩個選擇 1) 按照作者的姓abc排序  2) 按照本文中被引用的順序。
@@ -25,7 +26,7 @@
 \newcommand*\ThesisTitle中文{視覺化轉錄因子結合位點DNA\退{1}甲基化的新方法：MethylSeqLogo}
 \newcommand*\ThesisTitle英文{MethylSeqLogo: A Novel Method for the Vizualization of DNA Methylation at Transcription Factor Binding Sites}
 \newcommand*\ThesisNote中文{示例:其實徐翡曼是東京大學畢業的博士}% For real thesis omit, or use {初稿} etc.
-\newcommand*\ThesisNote英文{Just an example.  Fei-Man actually graduated from Tokyo Univ.}% For real thesis omit, or use {draft} etc.
+\newcommand*\ThesisNote英文{Just an example.  Fei-Man actually received a PhD from the University of Tokyo.}% For real thesis omit, or use {draft} etc.
 
 \newcommand*\Student中文{徐翡曼}
 \newcommand*\Student英文{Fei-man Hsu}
