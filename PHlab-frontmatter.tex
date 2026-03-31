@@ -10,6 +10,7 @@
 \pagenumbering{gobble}% Turn off page numbering.
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
+\newgeometry{tmargin=2.3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
 
 \begin{center}
 \vspace{2cm}
@@ -58,6 +59,8 @@ Thesis for \ifdef\PhD{Doctor of Philosophy}{Master of Science} Degree\\
 \vfill
 \SelectFontsizeMD{20}{中華民國\YearMonth中文}
 \end{center}
+
+\restoregeometry
 
 
 
@@ -156,11 +159,11 @@ Chairman: \SignatureRule[8]
 \end{center}
 
 \vspace{4mm}
-\SelectFontsizeMD{16}{\Abstract中文}
+\SelectFontsizeMD{12}{\Abstract中文}
 
 \vspace{4mm}
 \begin{flushleft}
-\SelectFontsizeMD{16}{\textbf{關鍵詞:} \Keywords中文}
+\SelectFontsizeMD{12}{\textbf{關鍵詞:} \Keywords中文}
 \end{flushleft}
 
 
@@ -180,11 +183,11 @@ Chairman: \SignatureRule[8]
 \end{center}
 
 \vspace{4mm}
-\SelectFontsizeMD{14}{\Abstract英文}
+\SelectFontsizeMD{12}{\Abstract英文}
 
 \vspace{4mm}
 \begin{flushleft}
-\SelectFontsizeMD{16}{\textbf{Keywords:} \Keywords英文}
+\SelectFontsizeMD{12}{\textbf{Keywords:} \Keywords英文}
 \end{flushleft}
 
 

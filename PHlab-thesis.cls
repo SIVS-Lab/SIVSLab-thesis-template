@@ -17,7 +17,8 @@
 
 \RequirePackage{geometry}
 \RequirePackage{type1cm}
-\geometry{verbose,a4paper,tmargin=2.3cm,bmargin=3cm,lmargin=2.5cm,rmargin=3cm}
+% Margins of inside pages. See https://www.cc.ncku.edu.tw/rule/content.php?sn=684
+\geometry{verbose,a4paper,tmargin=2.3cm,bmargin=3.5cm,lmargin=3cm,rmargin=2.5cm}
 
 \RequirePackage{setspace}
 \onehalfspace%  設行距為1.5倍
@@ -60,6 +61,7 @@
 \fi
 
 
+\RequirePackage{indentfirst}
 
 
 %\newcommand*\Chap[1]{\chapter*{#1}\AddToContents{#1}}

@@ -5,7 +5,7 @@
 %  Compile: perl compile-thesis-from-scratch.pl compile-opts-example.tex
 %  Compile: xelatex  -jobname thesis  compile-opts-example.tex
 %
-\documentclass{PHlab-thesis}
+% \documentclass{PHlab-thesis}  <-- 碩士生
 % \documentclass[PhD]{PHlab-thesis}  <-- 博士生
 
 %  參考文獻排序
@@ -17,10 +17,11 @@
 %  That ordering is common in life sciences journals, and I like it better when there less than ≈50 references.
 % \documentclass[PhD,BibLaTeXsortingNone]{PHlab-thesis}
 
+\documentclass[BibLaTeXsortingNone]{PHlab-thesis}
 
-\addbibresource{thesis-example.bib}
+\addbibresource{thesis.bib}
 
-\newcommand*\Department中文{資訊工程學研究所}
+\newcommand*\Department中文{資訊工程學系}
 \newcommand*\Department英文{Institute of Computer Science and Information Engineering}
 
 \newcommand*\ThesisTitle中文{視覺化轉錄因子結合位點DNA\退{1}甲基化的新方法：MethylSeqLogo}
@@ -28,11 +29,11 @@
 \newcommand*\ThesisNote中文{示例:其實徐翡曼是東京大學畢業的博士}% For real thesis omit, or use {初稿} etc.
 \newcommand*\ThesisNote英文{Just an example.  Fei-Man actually received a PhD from the University of Tokyo.}% For real thesis omit, or use {draft} etc.
 
-\newcommand*\Student中文{徐翡曼}
-\newcommand*\Student英文{Fei-man Hsu}
+\newcommand*\Student中文{李明翰}
+\newcommand*\Student英文{Ming-Han Lee}
 
-\newcommand*\Advisor中文{賀保羅}
-\newcommand*\Advisor英文{Paul Horton}
+\newcommand*\Advisor中文{陳奇業}
+\newcommand*\Advisor英文{Chi-Yeh Chen}
 
 %% 果有共同指導老師可以用:
 %% \newcommand*\CoAdvisorA中文{}
@@ -41,10 +42,10 @@
 %% \newcommand*\CoAdvisorB英文{}
 
 
-\newcommand*\YearMonth英文{July, 2022}
-\newcommand*\YearMonth中文{１１１年７月}
+\newcommand*\YearMonth英文{July, 2026}
+\newcommand*\YearMonth中文{一一五年七月}
 
-\pagestyle{fancy}% Use fancyhdr
+\pagestyle{plain}
 
 
 \hyphenation{Wiki-pedia}% 幫latex在行尾分割

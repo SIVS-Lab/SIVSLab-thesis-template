@@ -1,14 +1,12 @@
-# Template/Example for Master's or PhD Thesis
+# SIVS Lab Thesis Template
+An opinionated template for master's or PhD thesis at SIVS Lab.
 
-Developed by Paul Horton in 2021 for his lab in the computer science department at NCKU.
-Others are welcome to adapt this under the conditions of the Gnu Public License.
+# Acknowledgements
+This template is adapted from Paul Horton’s 
+[PHLab NCKU thesis template]((https://gitlab.com/paulhorton/phlab-ncku-thesis-template)).  
+We sincerely thank him for his contribution.  
 
-## Acknowledgements
-The following two resources gave me ideas for this template.
-
-*  https://github.com/wengan-li/ncku-thesis-template-latex
-*  https://www.overleaf.com/latex/templates/imslab-thesis-template/rcfwchjpqbwx
-
+See the [CHANGELOG.md](CHANGELOG.md) for modifications made to the original version.
 
 # Requirements
 * xelatex
@@ -18,6 +16,13 @@ The following two resources gave me ideas for this template.
 * perl module Data::Lock  (to run the compile-thesis-from-scratch.pl script)
 * emacs  (always recommended :)
 
+# Install
+## Ubuntu / Debian
+```
+sudo apt install texlive-xetex
+sudo apt install biber
+sudo apt install cpanminus sudo cpanm Data::Lock
+```
 
 # Usage
 
@@ -96,3 +101,45 @@ In particular, filenames should not include spaces.
 For example, if you have a directory holding run time tables,
 do **not** name it ~~run time tables~~,
 instead try `run-time-tables` or `runTimeTables`
+
+# Setting up LaTeX Workshop in VSCode
+
+1. Install [Latex Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
+2. Create an empty `.vscode/settings.json` file.
+3. Copy and paste the code below into it.
+```json
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "thesis-full",
+      "command": "perl",
+      "args": [
+        "compile-thesis-from-scratch.pl",
+        "compile-opts.tex"
+      ]
+    },
+    {
+      "name": "thesis-quick",
+      "command": "xelatex",
+      "args": [
+        "-jobname=thesis",
+        "compile-opts.tex"
+      ]
+    }
+  ],
+
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "Thesis (Full Build)",
+      "tools": ["thesis-full"]
+    },
+    {
+      "name": "Thesis (Quick XeLaTeX)",
+      "tools": ["thesis-quick"]
+    }
+  ],
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.formatting.latex": "latexindent",
+  "latex-workshop.latex.recipe.default": "Thesis (Quick XeLaTeX)"
+}
+```
