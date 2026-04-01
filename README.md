@@ -20,8 +20,10 @@ See the [CHANGELOG.md](CHANGELOG.md) for modifications made to the original vers
 ## Ubuntu / Debian
 ```
 sudo apt install texlive-xetex
+sudo apt install latex-cjk-all
 sudo apt install biber
-sudo apt install cpanminus sudo cpanm Data::Lock
+sudo apt install cpanminus
+sudo cpanm Data::Lock
 ```
 
 # Usage
