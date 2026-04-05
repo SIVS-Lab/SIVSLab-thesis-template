@@ -16,7 +16,7 @@ See the [CHANGELOG.md](CHANGELOG.md) for modifications made to the original vers
 * perl module Data::Lock  (to run the compile-thesis-from-scratch.pl script)
 * emacs  (always recommended :)
 
-# Install
+# Installation
 ## Ubuntu / Debian
 ```
 sudo apt install texlive-xetex
@@ -105,7 +105,7 @@ do **not** name it ~~run time tables~~,
 instead try `run-time-tables` or `runTimeTables`
 
 # Setting up LaTeX Workshop in VSCode
-
+## Configuration
 1. Install [Latex Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop).
 2. Create an empty `.vscode/settings.json` file.
 3. Copy and paste the code below into it.
@@ -132,16 +132,29 @@ instead try `run-time-tables` or `runTimeTables`
 
   "latex-workshop.latex.recipes": [
     {
+      "name": "Thesis (Full + Quick)",
+      "tools": [
+        "thesis-full",
+        "thesis-quick"
+      ]
+    },
+    {
       "name": "Thesis (Full Build)",
       "tools": ["thesis-full"]
     },
     {
       "name": "Thesis (Quick XeLaTeX)",
       "tools": ["thesis-quick"]
-    }
+    },
   ],
   "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.formatting.latex": "latexindent",
   "latex-workshop.latex.recipe.default": "Thesis (Quick XeLaTeX)"
 }
 ```
+## Usage
+- Press `Ctrl + Alt + B` to build the LaTeX project using the default recipe.
+- Press `Ctrl + Shift + P`, then select "LaTeX Workshop: Build with recipe."
+  - Thesis (Full + Quick): Performs a full build followed by a quick build to stop LaTeX Workshop from complaining.
+  - Thesis (Full Build): Compiles the entire document from scratch.
+  - Thesis (Quick XeLaTeX): Performs a fast compile without running Biber.
