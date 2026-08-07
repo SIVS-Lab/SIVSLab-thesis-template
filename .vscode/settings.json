@@ -1,0 +1,101 @@
+{
+    "latex-workshop.latex.tools": [
+        {
+            "name": "compile-thesis",
+            "command": "latexmk",
+            "args": [
+                "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-jobname=%DOCFILE%",
+                "%DOC_EXT%"
+            ]
+        },
+
+        // Use CFONT, default UNDERLINE outputs ugly shit without line break
+        // For types, see https://texdoc.org/serve/latexdiff-man.pdf/0
+        // We only handle abstract and keywords now, add new ones if you change weird shit
+        // --no-del is not availabe in 2021 version ;(
+        {
+            "name": "create-diff",
+            "command": "bash",
+            "args": [
+                "-c",
+                "latexdiff --type=BOLD --append-textcmd=\"AbstractTW,AbstractEN,KeywordsTW,KeywordsEN,ThesisTitleTW,ThesisTitleEN,item\" thesis-old.tex thesis.tex > thesis-diff.tex"
+            ]
+        },
+        {
+            "name": "compile-diff",
+            "command": "latexmk",
+            "args": [
+                "-xelatex",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-jobname=thesis-diff",
+                "thesis-diff.tex"
+            ]
+        },
+        // References: https://texdoc.org/serve/latexmk/0
+        {
+            "name": "remove-tempfiles",
+            "command": "latexmk",
+            "args": ["-c", "%DOC_EXT%"]
+        },
+        {
+            "name": "remove-all-tempfiles",
+            "command": "latexmk",
+            "args": ["-C", "%DOC_EXT%"]
+        }
+
+        // Perl way to do your shit
+        // {
+        //   "name": "compile-thesis-full-opts",
+        //   "command": "perl",
+        //   "args": [
+        //     "compile-thesis-from-scratch.pl",
+        //     "compile-opts.tex"
+        //   ]
+        // },
+        // {
+        //   "name": "compile-thesis-quick-opts",
+        //   "command": "xelatex",
+        //   "args": [
+        //     "-jobname=thesis",
+        //     "compile-opts.tex"
+        //   ]
+        // },
+        // {
+        //   "name": "remove-tempfiles",
+        //   "command": "perl",
+        //   "args": [
+        //     "latex-cleanup-tempfiles.pl",
+        //     "%DOC_EXT%"
+        //   ]
+        // },
+    ],
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Compile thesis",
+            "tools": ["compile-thesis"]
+        },
+        {
+            "name": "Compile diff",
+            "tools": ["create-diff", "compile-diff"]
+        },
+        {
+            "name": "Remove temporary files",
+            "tools": ["remove-tempfiles"]
+        },
+        {
+            "name": "Remove all temporary files",
+            "tools": ["remove-all-tempfiles"]
+        }
+    ],
+    // don't rebuild when saving because it's slow and we have multiple recipes
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.formatting.latex": "latexindent",
+    "latex-workshop.latex.recipe.default": "Compile thesis"
+}

@@ -5,10 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.2.0] - 2026-04-05
+## [1.0.0] - 2026-08-07
+### Added
+- .pdf support for certificate page
+- Some additional packages
+- Acknowledgements footnote
+- `.latexmkrc`
+- `.vscode/settings.json`
+
 ### Changed
-- Add `latex-cjk-all` dependency and fix typo.
+- Format files
+- Rename commands with "中文" and "英文"
+- Replace example files with the actual ones.
+- Update `README.md`
+- Update `.gitignore`
+
+## [0.2.0] - 2026-04-05
+### Added
+- Add `latex-cjk-all` dependency.
 - Add a new latex recipe: "Thesis (Full + Quick)".
+
+### Fixed
+- Fix typo
  
 ## [0.1.0] - 2026-03-31
    

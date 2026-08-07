@@ -1,3 +1,6 @@
+% ---------------------------------------------------------------------------- %
+%                                 Configuration                                %
+% ---------------------------------------------------------------------------- %
 %% Note the double {{ }}, this grouping contains the fontsize change to the scope of the macro.
 %% These two macros set \baselineskip 2pt more than the fontsize, represented by #1
 \newcommand*\SelectFontsizeMD[2]{{\fontsize{#1}{\numexpr #1 + 2}\selectfont\mdseries#2\par}}
@@ -12,202 +15,142 @@
 
 \newgeometry{tmargin=2.3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
 
+
+% ---------------------------------------------------------------------------- %
+%                                     Cover                                    %
+% ---------------------------------------------------------------------------- %
 \begin{center}
-\vspace{2cm}
-\SelectFontsizeBF{24}{%
-\University中文\Department中文\\
-\學位 論文}
+  \vspace{2cm}
+  \SelectFontsizeBF{24}{%
+    \UniversityTW\DepartmentTW\\
+    \Degree 論文}
 
-\vfill
-\SelectFontsizeBF{24}{\ThesisTitle中文}
-\ifdefined\ThesisNote中文
-\SelectFontsizeMD{22}{\textit{\ThesisNote中文}}
-\fi
+  \vfill
+  \SelectFontsizeBF{24}{\ThesisTitleTW}
+  \ifdefined\ThesisNoteTW
+    \SelectFontsizeMD{22}{\textit{\ThesisNoteTW}}
+  \fi
 
-\vspace{5mm}
-\SelectFontsizeBF{22}{\ThesisTitle英文}
-\ifdefined\ThesisNote英文
-\SelectFontsizeMD{20}{\textit{\ThesisNote英文}}
-\fi
+  \vspace{5mm}
+  \SelectFontsizeBF{22}{\ThesisTitleEN}
+  \ifdefined\ThesisNoteEN
+    \SelectFontsizeMD{20}{\textit{\ThesisNoteEN}}
+  \fi
 
-\vfill
+  \vfill
+  \begin{minipage}{\linewidth}
+    \centering
+    \SelectFontsizeMD{20}{%
+      \begin{tabular}{ r r @{\hspace{2em}} l l }
+        研究生：  & \StudentTW    & Student:    & \StudentEN    \\
+        指導老師： & \AdvisorTW    & Advisor:    & \AdvisorEN    \\
+        \ifdefined\CoAdvisorATW
+        共同指導： & \CoAdvisorATW & Co-Advisor: & \CoAdvisorAEN \\
+        \fi
+        \ifdefined\CoAdvisorBTW
+              & \CoAdvisorBTW & Co-Advisor: & \CoAdvisorBEN \\
+        \fi
+      \end{tabular}}
+  \end{minipage}
 
-\begin{minipage}{\linewidth}
-{\setlength\tabcolsep{0pt}
-%
-\SelectFontsizeMD{20}{%
-\begin{tabular}{ Wr{5em} Wl{6em} Wr{5em} wl{7em} }
-研究生：   & ~~\Student中文  &      Student: & ~~\Student英文\\
-指導老師： & ~~\Advisor中文  &      Advisor: & ~~\Advisor英文\\
-\ifdefined\CoAdvisorA中文
-共同指導： & ~~\CoAdvisorA中文 &   Co-Advisor: & ~~\CoAdvisorA英文\\
-\fi
-\ifdefined\CoAdvisorB中文
-         & ~~\CoAdvisorB中文 &   Co-Advisor: & ~~\CoAdvisorB英文\\
-\fi
-\end{tabular}
-}}
-\end{minipage}
+  \vfill
+  \SelectFontsizeMD{18}{%
+    \DepartmentEN,\\
+    National Cheng Kung University,\\
+    Tainan, Taiwan, R.O.C.\\
+    Thesis for \ifdef\PhD{Doctor of Philosophy}{Master of Science} Degree\\
+    \YearMonthEN}
 
-\vfill
-\SelectFontsizeMD{18}{%
-National Cheng Kung University,\\
-Tainan, Taiwan, R.O.C.\\
-Thesis for \ifdef\PhD{Doctor of Philosophy}{Master of Science} Degree\\
-\YearMonth英文}
-
-\vfill
-\SelectFontsizeMD{20}{中華民國\YearMonth中文}
+  \vfill
+  \SelectFontsizeMD{20}{中華民國\YearMonthTW}
 \end{center}
 
 \restoregeometry
 
 
-
+% ---------------------------------------------------------------------------- %
+%                                  Certificate                                 %
+% ---------------------------------------------------------------------------- %
 \ifdefined\optCommittee
-\newpage
-\begin{center}
-\vspace{1cm}
-\SelectFontsizeBF{24}{%
-\University中文\Department中文\\
-\學位 論文}
-\vfill
-\SelectFontsizeBF{20}{\ThesisTitle中文}
-\end{center}
-
-\vfill
-\SelectFontsizeMD{20}{%
-\noindent 研究生：\Student中文\\
-本論文業經審查及口試合格特此證明}
+  \includepdf[pages={1}]{certificate.pdf}
+\fi
 
 
-\begin{center}
-\SelectFontsizeMD{18pt}{論文考試委員}
-\vfill
-\SignatureRule \hspace*{1cm} \SignatureRule
-\vfill
-
-\SignatureRule \hspace*{1cm} \SignatureRule
-\vfill
-
-指導教授：\SignatureRule[8]
-\vfill
-　　所長：\SignatureRule[8]
-
-\vfill
-\SelectFontsizeMD{18}{中華民國 \hspace{2em} 年 \hspace{2em} 月 \hspace{2em} 日}
-\end{center}
-
-
-\newpage
-\begin{center}
-\vspace{1cm}
-\SelectFontsizeMD{18}{\University英文, \Department英文}
-\SelectFontsizeMD{19}{\ifdef\PhD{Ph.D.}{Master's} Degree Thesis}
-
-\vfill
-\SelectFontsizeBF{20}{\ThesisTitle英文}
-\end{center}
-
-\vfill
-\SelectFontsizeMD{18}{Student: \Student英文}
-
-\SelectFontsizeMD{18}{%
-A thesis submitted to the graduate division in partial fulfillment of the requirement for the degree of
-\ifdef\PhD{Doctor of \mbox{Philosophy}}{Master of Science}.
-}
-
-\vfill
-\begin{center}
-\SelectFontsizeMD{18}{Approved by}
-
-\vfill
-\SignatureRule \hspace*{1cm} \SignatureRule
-
-\vfill
-\SignatureRule \hspace*{1cm} \SignatureRule
-
-\vfill
-Advisor: \SignatureRule[8]
-
-\vfill
-Chairman: \SignatureRule[8]
-
-\vfill
-\SelectFontsizeMD{18}{\YearMonth英文}
-\vspace*{20pt}
-\end{center}
-\fi% optCommittee
-
-
+% ---------------------------------------------------------------------------- %
+%                              Abstract (Chinese)                              %
+% ---------------------------------------------------------------------------- %
 \AddToContents{中文摘要}
 \setcounter{page}{1}
 \pagenumbering{roman}
 
-
 \begin{center}
-\SelectFontsizeBF{24}{\ThesisTitle中文}
+  \SelectFontsizeBF{24}{\ThesisTitleTW}
 
-\vspace{4mm}
-\SelectFontsizeMD{18}{\Student中文\footnote[1]{學生} ~ \Advisor中文\footnote[2]{指導教授}}
+  \vspace{4mm}
+  \SelectFontsizeMD{18}{\StudentTW\footnote[1]{學生} ~ \AdvisorTW\footnote[2]{指導教授}}
 
-\vspace{5mm}
-\SelectFontsizeMD{20}{國立成功大學\Department中文}
+  \vspace{5mm}
+  \SelectFontsizeMD{20}{國立成功大學\DepartmentTW}
 
-\vspace{12mm}
-\makebox[2.7cm][c]{\SelectFontsizeBF{22}{摘要}}
+  \vspace{12mm}
+  \makebox[2.7cm][c]{\SelectFontsizeBF{22}{摘要}}
 \end{center}
 
 \vspace{4mm}
-\SelectFontsizeMD{12}{\Abstract中文}
+\SelectFontsizeMD{12}{\AbstractTW}
 
 \vspace{4mm}
 \begin{flushleft}
-\SelectFontsizeMD{12}{\textbf{關鍵詞:} \Keywords中文}
+  \SelectFontsizeMD{12}{關鍵詞: \KeywordsTW}
 \end{flushleft}
 
-
-
+% ---------------------------------------------------------------------------- %
+%                              Abstract (English)                              %
+% ---------------------------------------------------------------------------- %
 \AddToContents{Abstract}
 \begin{center}
-\SelectFontsizeBF{22}{\ThesisTitle英文}
+  \SelectFontsizeBF{22}{\ThesisTitleEN}
 
-\vspace{4mm}
-\SelectFontsizeMD{18}{\Student英文\footnote[1]{Student} ~ \Advisor英文\footnote[2]{Advisor}}
+  \vspace{4mm}
+  \SelectFontsizeMD{18}{\StudentEN\footnote[1]{Student} ~ \AdvisorEN\footnote[2]{Advisor}}
 
-\vspace{4mm}
-\SelectFontsizeMD{16}{\Department英文, National Cheng Kung University}
+  \vspace{4mm}
+  \SelectFontsizeMD{16}{\DepartmentEN, National Cheng Kung University}
 
-\vspace{12mm}
-\SelectFontsizeBF{20}{Abstract}
+  \vspace{12mm}
+  \SelectFontsizeBF{20}{Abstract}
 \end{center}
 
 \vspace{4mm}
-\SelectFontsizeMD{12}{\Abstract英文}
+\SelectFontsizeMD{12}{\AbstractEN}
 
 \vspace{4mm}
 \begin{flushleft}
-\SelectFontsizeMD{12}{\textbf{Keywords:} \Keywords英文}
+  \SelectFontsizeMD{12}{Keywords: \KeywordsEN}
 \end{flushleft}
 
 
+% ---------------------------------------------------------------------------- %
+%                               Acknowledgements                               %
+% ---------------------------------------------------------------------------- %
+\ifdefined\Acknowledgements
+  \AddToContents{誌謝}
+  \begin{center}\SelectFontsizeBF{24}{誌謝}\end{center}
 
-\AddToContents{誌謝}
-\begin{center}\SelectFontsizeBF{24}{誌謝}\end{center}
-
-\vspace{4mm}
-\Acknowledgements
+  \vspace{4mm}
+  \Acknowledgements
+\fi
 
 
-
-\renewcommand{\contentsname}{CONTENTS}
+% ---------------------------------------------------------------------------- %
+%                                   Contents                                   %
+% ---------------------------------------------------------------------------- %
+\renewcommand{\contentsname}{Contents}
 \AddToContents{Contents}
 \tableofcontents
 
-
 \AddToContents{List of Tables}
 \listoftables
-
 
 \AddToContents{List of Figures}
 \listoffigures

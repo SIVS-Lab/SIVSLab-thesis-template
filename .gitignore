@@ -1,1 +1,10 @@
-.vscode
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.pdf
+thesis-diff.tex
+thesis-old.tex
