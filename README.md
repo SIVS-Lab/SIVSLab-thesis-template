@@ -45,7 +45,7 @@ Edit `\documentclass[]` in [thesis.tex](thesis.tex):
 | `PhD`                 | Enable PhD-specific formatting (omit for master's thesis).                 |
 
 
-## Compile options
+### Compile options
 Uncomment the desired lines in [thesis.tex](thesis.tex) (for latexmk) or [compile-opts.tex](compile-opts.tex) (for legacy Perl/XeLaTeX):
 | Command                        | Effect                                        |
 | ------------------------------ | --------------------------------------------- |
@@ -112,16 +112,16 @@ You can use latexdiff to compare two latex files and marks up significant differ
 > thesis-old.tex thesis.tex > thesis-diff.tex
 > ```
 
-# LaTeX Workshop
+## LaTeX Workshop
 We provide a default configuration for [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension on VSCode for useful commands.
-## Build Recipes
+### Build Recipes
 | Recipe                     | Action                                                      |
 | -------------------------- | ----------------------------------------------------------- |
 | Compile thesis             | Build the current active file.                              |
 | Compile thesis diff        | Generate and build `thesis-diff.tex` from `thesis-old.tex`. |
 | Remove temporary files     | Delete auxiliary build files.                               |
 | Remove all temporary files | Delete auxiliary files and the output PDF.              |
-## Keyboard Shortcuts
+### Keyboard Shortcuts
 | Shortcut     | Action                                 |
 | ------------ | -------------------------------------- |
 | `Ctrl+Alt+B` | Build the current file.                |
@@ -129,10 +129,10 @@ We provide a default configuration for [LaTeX Workshop](https://marketplace.visu
 | `Ctrl+Alt+J` | Sync from source line to PDF position. |
 | `Ctrl+Alt+C` | Clean up auxiliary files.              |
 
-# Acknowledgements
+## Acknowledgements
 This template is adapted from Paul Horton’s 
 [PHLab NCKU thesis template](https://gitlab.com/paulhorton/phlab-ncku-thesis-template).  
 We sincerely thank him for his contribution.  
 
-# License
+## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
