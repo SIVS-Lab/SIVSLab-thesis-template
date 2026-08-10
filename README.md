@@ -1,7 +1,7 @@
 # SIVS Lab Thesis Template
 
-An opinionated LaTeX template for master's and PhD theses at SIVS Lab,  
-adapted from [Paul Horton's PHLab NCKU thesis template](https://gitlab.com/paulhorton/phlab-ncku-thesis-template).  
+An opinionated LaTeX template for master's and PhD theses at SIVS Lab, 
+adapted from [Paul Horton's PHLab NCKU thesis template](https://gitlab.com/paulhorton/phlab-ncku-thesis-template).
 See the [CHANGELOG](CHANGELOG.md ) for a full list of modifications.
 
 
@@ -52,6 +52,11 @@ Uncomment the desired lines in [thesis.tex](thesis.tex) (for latexmk) or [compil
 | `\newcommand*\optCommittee{}`  | Include the defense committee signature page. |
 | `\newcommand*\optHyperlinks{}` | Enable clickable hyperlinks in the PDF.       |
 | `\newcommand*\optWatermark{}`  | Overlay the official NCKU watermark.          |
+
+### Math Symbols
+We recommend using `amssymb` instead of `unicode-math` (which is currently used to maintain template compatibility, as the two packages conflict). 
+To switch packages, edit configuration in [PHlab-thesis.cls](PHlab-thesis.cls).
+
 
 ## Compile Document
 ### Latexmk (Recommended)
@@ -131,8 +136,7 @@ We provide a default configuration for [LaTeX Workshop](https://marketplace.visu
 
 ## Acknowledgements
 This template is adapted from Paul Horton’s 
-[PHLab NCKU thesis template](https://gitlab.com/paulhorton/phlab-ncku-thesis-template).  
-We sincerely thank him for his contribution.  
+[PHLab NCKU thesis template](https://gitlab.com/paulhorton/phlab-ncku-thesis-template).  We sincerely thank him for his contribution.  
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).

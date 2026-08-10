@@ -10,7 +10,7 @@
 
 \RequirePackage{array}
 \RequirePackage{amsmath}
-\RequirePackage{amssymb}
+% \RequirePackage{amssymb}
 \RequirePackage{unicode-math}
 
 \RequirePackage{booktabs}%  For \{top|mid|bottom}rule

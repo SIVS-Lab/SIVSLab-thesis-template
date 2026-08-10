@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-08-11
+### Fixed
+- Add missing temporary files generated during compilation in .gitignore
+
+### Changed
+- Remove amssymb from the default packages
+
 ## [1.0.1] - 2026-08-08
 ### Fixed
 - Title sizes in README
@@ -17,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Acknowledgements footnote
 - `.latexmkrc`
 - `.vscode/settings.json`
+  
 
 ### Changed
 - Format files
@@ -29,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add `latex-cjk-all` dependency.
 - Add a new latex recipe: "Thesis (Full + Quick)".
+
 
 ### Fixed
 - Fix typo
