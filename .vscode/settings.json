@@ -12,17 +12,24 @@
                 "%DOC_EXT%"
             ]
         },
-
-        // Use CFONT, default UNDERLINE outputs ugly shit without line break
+        // I suggest using CFONT, default UNDERLINE outputs ugly shit without line break
         // For types, see https://texdoc.org/serve/latexdiff-man.pdf/0
-        // We only handle abstract and keywords now, add new ones if you change weird shit
-        // --no-del is not availabe in 2021 version ;(
+        // --no-del is not availabe in the older version,
+        // use local instead of global system latexdiff to avoid compile error ;D
         {
             "name": "create-diff",
             "command": "bash",
             "args": [
                 "-c",
-                "latexdiff --type=BOLD --append-textcmd=\"AbstractTW,AbstractEN,KeywordsTW,KeywordsEN,ThesisTitleTW,ThesisTitleEN,item\" thesis-old.tex thesis.tex > thesis-diff.tex"
+                "./latexdiff --type=CFONT --no-del --append-textcmd=newcommand --append-textcmd=\"AbstractTW,AbstractEN,KeywordsTW,KeywordsEN,ThesisTitleTW,ThesisTitleEN,item\" thesis-old.tex thesis.tex > thesis-diff.tex"
+            ]
+        },
+        {
+            "name": "remove-Sans-serif",
+            "command": "bash",
+            "args": [
+                "-c",
+                "sed -i 's/\\\\providecommand{\\\\DIFadd}\\[1\\]{{\\\\protect\\\\color{blue} \\\\sf #1}}/\\\\providecommand{\\\\DIFadd}\\[1\\]{{\\\\protect\\\\color{blue} #1}}/g' thesis-diff.tex"
             ]
         },
         {
@@ -48,7 +55,6 @@
             "command": "latexmk",
             "args": ["-C", "%DOC_EXT%"]
         }
-
         // Perl way to do your shit
         // {
         //   "name": "compile-thesis-full-opts",
@@ -75,7 +81,6 @@
         //   ]
         // },
     ],
-
     "latex-workshop.latex.recipes": [
         {
             "name": "Compile thesis",
@@ -83,7 +88,7 @@
         },
         {
             "name": "Compile diff",
-            "tools": ["create-diff", "compile-diff"]
+            "tools": ["create-diff", "remove-Sans-serif", "compile-diff"]
         },
         {
             "name": "Remove temporary files",

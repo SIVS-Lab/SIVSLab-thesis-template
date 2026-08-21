@@ -10,10 +10,14 @@
 *.lot
 *.nlo
 *.nls
-*.pdf
+*.out
 *.run.xml
 *.synctex.gz
 *.toc
 *.xdv
-thesis-diff.tex
 thesis-old.tex
+thesis-old.pdf
+thesis.pdf
+thesis-diff.tex
+thesis-diff.pdf
+bibliography.bib

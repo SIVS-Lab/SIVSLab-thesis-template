@@ -7,14 +7,14 @@ See the [CHANGELOG](CHANGELOG.md ) for a full list of modifications.
 
 ## Prerequisites
 ### Ubuntu / Debian
-```bash
+```
 sudo apt update
 sudo apt install -y texlive-xetex latex-cjk-all biber latexmk
 sudo apt install -y cpanminus && sudo cpanm Data::Lock
 ```
 
 ### Download
-```bash
+```
 git clone https://github.com/SIVS-Lab/SIVSLab-thesis-template.git
 ```
 
@@ -61,7 +61,7 @@ To switch packages, edit configuration in [PHlab-thesis.cls](PHlab-thesis.cls).
 ## Compile Document
 ### Latexmk (Recommended)
 #### Full compilation
-```bash
+```
 latexmk \
   -xelatex \
   -synctex=1 \
@@ -71,7 +71,7 @@ latexmk \
   thesis.tex
 ```
 #### Clean up auxiliary files
-```bash
+```
 latexmk -c thesis.tex        # keep PDF
 latexmk -C thesis.tex        # remove everything including PDF
 ```
@@ -81,41 +81,47 @@ If you prefer the legacy toolchain, use the provided Perl script or run XeLaTeX 
 Compile options must be set in [compile-opts.tex](compile-opts.tex) instead of thesis.tex.
 See the [original guide](https://gitlab.com/paulhorton/phlab-ncku-thesis-template/#usage) for details.
 #### Full compilation
-```bash
+```
 perl compile-thesis-from-scratch.pl compile-opts.tex
 ```
 #### Quick compilation
-```bash
+```
 xelatex  -jobname thesis compile-opts.tex
 ```
 #### Clean up auxiliary files
-```bash
+```
 perl latex-cleanup-tempfiles.pl thesis.tex
 ```
 
 ## Comparing Versions with latexdiff
-You can use latexdiff to compare two latex files and marks up significant differences between them
+You can use latexdiff to compare two latex files and marks up significant differences between them.
 
 1. Save your current version:
-  ```bash
+  ```
   cp thesis.tex thesis-old.tex
   ```
 2. Edit [thesis.tex](thesis.tex) with your revisions.
 3. Generate the diff source:
-  ```bash
-  latexdiff --type=BOLD thesis-old.tex thesis.tex > thesis-diff.tex
+  ```
+  ./latexdiff --type=CFONT --no-del thesis-old.tex thesis.tex > thesis-diff.tex
   ```
 4. Compile as usual:
-  ```bash
+  ```
   latexmk -xelatex -jobname="thesis-diff" thesis-diff.tex
   ```
 
 > [!TIP]
 > If custom commands break the formatting, allow them explicitly:
 > ```
-> latexdiff --type=BOLD --append-textcmd="AbstractTW,AbstractEN" \
+> latexdiff --append-textcmd="AbstractTW,AbstractEN" \
 > thesis-old.tex thesis.tex > thesis-diff.tex
 > ```
+
+## Converting BibLaTeX to BibTex
+This template uses Biber to process bibliographies in the BibLaTeX format. Some journals or conferences support only BibTeX. In such cases, use the following command to convert the bibliography to the standard BibTeX format:
+```
+biber --tool --output-format=bibtex --output-file=bibliography.bib thesis.bib
+```
 
 ## LaTeX Workshop
 We provide a default configuration for [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension on VSCode for useful commands.
@@ -140,3 +146,6 @@ This template is adapted from Paul Horton’s
 
 ## License
 This project is licensed under the GNU General Public License v3.0 (GPL-3.0).
+
+
+
