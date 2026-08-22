@@ -1,0 +1,43 @@
+#: title  : moss/xelatex
+#: author : "Willian Paixao" <willian@ufpa.br>
+#: version: "1.3.2"
+FROM debian:13@sha256:8f6a88feef3ed01a300dafb87f208977f39dccda1fd120e878129463f7fa3b8f
+
+LABEL org.opencontainers.image.authors="Willian Paixao <willian@ufpa.br>"
+LABEL org.opencontainers.image.licenses="GPL-3.0"
+LABEL org.opencontainers.image.source="https://github.com/moss-it/docker-xelatex"
+LABEL org.opencontainers.image.title="moss/xelatex"
+LABEL org.opencontainers.image.version="1.3.2"
+LABEL org.opencontainers.image.description="Docker image for compiling XeLaTeX documents"
+
+ENV DEBIAN_FRONTEND="noninteractive"
+
+# Install all TeX and LaTeX dependencies
+RUN apt-get update && \
+  apt-get install --yes --no-install-recommends \
+  ca-certificates \
+  git \
+  html2text \
+  inotify-tools \
+  lmodern \
+  make \
+  texlive-extra-utils \
+  texlive-fonts-recommended \
+  texlive-lang-english \
+  texlive-lang-chinese\
+  texlive-latex-extra\
+  texlive-lang-portuguese \
+  texlive-plain-generic \
+  texlive-bibtex-extra\
+  latex-cjk-all\
+  texlive-xetex && \
+  biber\
+  latexmk\
+  cpanminus\
+  cpanm Data::Lock\
+  apt-get autoclean && apt-get --purge --yes autoremove && \
+  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+# Export the output data
+WORKDIR /data
+VOLUME ["/data"]

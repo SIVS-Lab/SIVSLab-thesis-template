@@ -4,18 +4,22 @@ An opinionated LaTeX template for master's and PhD theses at SIVS Lab,
 adapted from [Paul Horton's PHLab NCKU thesis template](https://gitlab.com/paulhorton/phlab-ncku-thesis-template).
 See the [CHANGELOG](CHANGELOG.md ) for a full list of modifications.
 
-
 ## Prerequisites
 ### Ubuntu / Debian
 ```
 sudo apt update
 sudo apt install -y texlive-xetex latex-cjk-all biber latexmk
 sudo apt install -y cpanminus && sudo cpanm Data::Lock
+git clone https://github.com/SIVS-Lab/SIVSLab-thesis-template.git
+cd SIVSLab-thesis-template
 ```
 
-### Download
+### Docker
 ```
 git clone https://github.com/SIVS-Lab/SIVSLab-thesis-template.git
+cd SIVSLab-thesis-template
+docker build -t moss/xelatex .
+docker run --rm -it -v "$PWD:/data" moss/xelatex bash
 ```
 
 ## File Summary
@@ -30,7 +34,8 @@ git clone https://github.com/SIVS-Lab/SIVSLab-thesis-template.git
 ├── NCKU-watermark-A4.pdf           # Official NCKU watermark
 ├── compile-thesis-from-scratch.pl  # Legacy full-compile script
 ├── latex-cleanup-tempfiles.pl      # Legacy cleanup script
-└── PH-latex-tips.tex               # LaTeX writing tips (compile with xelatex)
+├── PH-latex-tips.tex               # LaTeX writing tips (compile with XeLaTeX)
+└── Dockerfile                      # Dockerfile for XeLaTeX
 ```
 > [!NOTE] 
 > Note: Files in the root directory prefixed with PHlab- are formatting files.  
@@ -118,7 +123,7 @@ You can use latexdiff to compare two latex files and marks up significant differ
 > ```
 
 ## Converting BibLaTeX to BibTex
-This template uses Biber to process bibliographies in the BibLaTeX format. Some journals or conferences support only BibTeX. In such cases, use the following command to convert the bibliography to the standard BibTeX format:
+This template uses Biber to process bibliographies in the BibLaTeX format. Some journals or conferences support only BibTeX. In such cases, you can use the following command to convert the bibliography to the standard BibTeX format:
 ```
 biber --tool --output-format=bibtex --output-file=bibliography.bib thesis.bib
 ```
